@@ -1,55 +1,45 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you: 
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+title: jofra
+# description: "TODO: Blog description"
+author:
+  name: "jofra"
 
-title: Your awesome title
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+baseurl: /
 
-# Build settings
-theme: jekyll-theme-hacker
+source: .
+destination: ./_site
+permalink: /:title
+
+# jekyll-paginate (https://jekyllrb.com/docs/pagination/)
+# paginator.page                The number of the current page
+# paginator.per_page            Number of posts per page
+# paginator.posts               Posts available for the current page
+# paginator.total_posts         Total number of posts
+# paginator.total_pages         Total number of pages
+# paginator.previous_page       The number of the previous page, or nil if no previous page exists
+# paginator.previous_page_path  The path to the previous page, or nil if no previous page exists
+# paginator.next_page           The number of the next page, or nil if no subsequent page exists
+# paginator.next_page_path      The path to the next page, or nil if no subsequent page exists
+
+paginate: 10
+paginate_path: /page/:num/
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+future: true
+
+# jekyll-sitemap: generates a sitemap.xml file for crawling purposes
 plugins:
-  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# Custom variables
+google_analytics : "UA-102896129-1"
+# owner : "SomeHacker"
+# year : "2020"
