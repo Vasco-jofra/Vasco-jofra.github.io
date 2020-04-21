@@ -2,6 +2,7 @@
 layout: page
 title: About
 ---
+test update
 
 TODO:
  - add real posts
