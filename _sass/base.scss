@@ -35,8 +35,8 @@ body {
   padding: 0;
   background: $body-background; // url("../assets/asd.png") 0 0;
   color: $body-foreground;
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.4;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal,
     monospace;
 }
@@ -70,8 +70,12 @@ header {
   background: rgba(0, 0, 0, 0.5);
   //   border-bottom: 1px dashed $conifer; //header;
   //   padding: 40px;
-  margin: 0 0 0 0;
+  margin: 0 auto;
   text-align: center;
+}
+
+.header-logo {
+  padding-bottom: 20px;
 }
 
 nav {
@@ -180,7 +184,7 @@ pre {
   background: rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 10px;
-  font-size: 16px;
+  font-size: 14px;
   color: #b5e853;
   border-radius: 2px;
   text-wrap: normal;
