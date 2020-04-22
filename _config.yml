@@ -8,6 +8,7 @@ baseurl: /
 source: .
 destination: ./_site
 permalink: /:title
+permalink: /:collection/:day/:month/:year/:title
 
 # jekyll-paginate (https://jekyllrb.com/docs/pagination/)
 # paginator.page                The number of the current page
@@ -20,7 +21,7 @@ permalink: /:title
 # paginator.next_page           The number of the next page, or nil if no subsequent page exists
 # paginator.next_page_path      The path to the next page, or nil if no subsequent page exists
 
-paginate: 10
+paginate: 3 # @@TODO: change me to 50
 paginate_path: /page/:num/
 
 defaults:
@@ -31,10 +32,14 @@ defaults:
     values:
       layout: "post"
 
-future: true
+# Should publish post with dates in the future
+future: false
 
+# jekyll-feed: generated feed.xml automatically (for RSS)
 # jekyll-sitemap: generates a sitemap.xml file for crawling purposes
+# jekyll-seo-tag: generates metadata for better indenting and display of content in link previews
 plugins:
+  - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-paginate

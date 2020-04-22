@@ -6,13 +6,7 @@ title: Archive
 <section>
   {% if site.posts[0] %}
 
-    {% capture currentyear %}{{ 'now' | date: "%Y" }}{% endcapture %}
-    {% capture firstpostyear %}{{ site.posts[0].date | date: '%Y' }}{% endcapture %}
-    {% if currentyear == firstpostyear %}
-        <h3>This year's posts</h3>
-    {% else %}  
-        <h3>{{ firstpostyear }}</h3>
-    {% endif %}
+    <h3>{{ site.posts[0].date | date: '%Y' }}</h3>
 
     {%for post in site.posts %}
       {% unless post.next %}
@@ -22,15 +16,15 @@ title: Archive
         {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
         {% if year != nyear %}
           </ul>
-          <h3>{{ post.date | date: '%Y' }}</h3>
+          <h3>{{ year }}</h3>
           <ul>
         {% endif %}
       {% endunless %}
-        <li><time>{{ post.date | date:"%d %b" }} - </time>
-          <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-            {{ post.title }}
-          </a>
-        </li>
+
+      <li>
+        <time> {{ post.date | date:"%d %b" }} | </time>
+        <a href="{{ post.url }}"> {{ post.title }} </a>
+      </li>
     {% endfor %}
     </ul>
 
