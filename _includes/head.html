@@ -7,12 +7,13 @@
   <title>{%if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 
   <link rel="stylesheet" href="{{ "/css/main.css" }}">
-  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" />
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed">
 
   {% seo %}
 
   <!-- All this for a favicon ¯\_(ツ)_/¯ -->
   <!-- Generated with: https://realfavicongenerator.net/ -->
+  <!-- Does not work in localhost (unless we change the name of favicon.ico to something else) -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">

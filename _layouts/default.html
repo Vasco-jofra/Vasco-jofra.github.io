@@ -5,7 +5,7 @@
   <body>
     {% include header.html %}
 
-    <div class="main_container body-container">
+    <div class="main-container body-container">
       <section id="main_content">
         {{ content }}
       </section>
@@ -13,8 +13,6 @@
     </div>
 
 
-    {% if site.google_analytics %}
-      {%include analytics.html %}
-    {% endif %}
-</body>
+    {% if site.google_analytics %} {%include analytics.html %} {% endif %}
+  </body>
 </html>
