@@ -4,16 +4,18 @@ title: About
 ---
 
 TODO:
+ - footer (add github and twitter link; maybe also archive?)
+ - cleanup the css file
  - improve home spacing (date should be closer to title for example)
- - improve the colors
- - add github and twitter link (in footer?)
+ - make color scheme(s)
  - make RSS an image link (at the bottom?)
  - add categories and category pages
  - add tags and tag pages
  - add all the old posts
 
 DONE:
- - improve the nav style (it's something now.. not sure I like it or not yet)
+ - bg image blurred
+ - improve the nav style
  - favicon
  - add image to name in header
  - add a real post

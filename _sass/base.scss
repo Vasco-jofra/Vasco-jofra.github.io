@@ -10,35 +10,102 @@ $body-foreground: $gallery !default;
 $header: $conifer !default;
 $blockquote-color: $silver-chalice !default;
 $blockquote-border: $dove-grey !default;
-
 $container-background: $cod-grey !default;
+$link_color: #63c0f5;
 
 // ====================
-// General
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0 0 20px;
+// Common
+// ====================
+// Both the body and the nav should have the same
+.main_container {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+
+  // Padding is smaller the smaller your window sz is
+  padding-right: 2%;
+  padding-left: 2%;
+
+  // Need so that width:100% includes the padding
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
 }
 
-li {
-  line-height: 1.4;
+// ====================
+// Header
+// ====================
+header {
+  background: #101010; // rgba(0, 0, 0, 0.5);
+}
+
+.header-logo {
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+nav {
+  background: #0d0d0d; // rgba(0, 0, 0, 0.2);
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  margin: 0;
+}
+
+nav a {
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  padding-right: 10px;
+  padding-left: 10px;
+
+  transition: background-color 0.3s ease-out;
+  -webkit-transition: background-color 0.3s ease-out;
+
+  transition: color 0.3s ease-out;
+  -webkit-transition: color 0.3s ease-out;
+}
+
+nav a:hover {
+  color: white;
+  background-color: #777;
+  border-radius: 2px;
+}
+
+.header-link {
+  display: inline;
+  font-size: 18px;
+  color: #666;
+  letter-spacing: -0.03em;
 }
 
 // ====================
 // Body
 body {
+  // margins
   margin: 0;
   padding: 0;
-  background: $body-background; // url("../assets/asd.png") 0 0;
-  color: $body-foreground;
+
+  // text
   font-size: 14px;
   line-height: 1.4;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal,
     monospace;
+  color: $body-foreground;
+
+  // background
+  background: $body-background;
+
+  //   background: #827d7d;
+  background-image: url("../assets/bkg.png");
+
+  //   background: #aa9696;
+  //   background-image: url("../assets/test_redish.png");
+
+  background-repeat: repeat-y;
+  background-position-x: center;
 }
 
 // ====================
@@ -49,66 +116,17 @@ section {
   margin-bottom: 20px;
 }
 
-// Both the body and the nav should have the same
-.container {
-  width: 100%;
-  max-width: 900px;
-  padding-right: 2%;
-  padding-left: 2%;
-  margin: auto;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-}
-
 .body-container {
+  //   visibility: hidden;
+
   background: $container-background;
   padding-top: 30px;
   padding-bottom: 30px;
-}
 
-// ====================
-// Header
-header {
-  background: rgba(0, 0, 0, 0.5);
-  text-align: center;
-}
-
-.header-logo {
-  padding-bottom: 20px;
-}
-
-nav {
-  background: rgba(0, 0, 0, 0.2);
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.header-link {
-  display: inline;
-}
-
-// header h1 {
-//   font-size: 24px;
-//   line-height: 1.5;
-//   margin: 0;
-//   text-align: center;
-//   font-weight: bold;
-//   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal,
-//     monospace;
-//   color: $conifer; //$header;
-//     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
-//                  0 0 5px rgba(181, 232, 83, 0.1),
-//                  0 0 10px rgba(181, 232, 83, 0.1);
-//   letter-spacing: -1px;
-//   -webkit-font-smoothing: antialiased;
-// }
-
-header h2 {
-  font-size: 18px;
-  font-weight: 300;
-  color: #666;
+  // To handle the background image
+  //   position: absolute;
+  //   left: 0;
+  //   right: 0;
 }
 
 // ====================
@@ -117,6 +135,7 @@ header h2 {
   width: 100%;
   -webkit-font-smoothing: antialiased;
 }
+
 section img {
   max-width: 100%;
 }
@@ -127,6 +146,7 @@ h3,
 h4,
 h5,
 h6 {
+  margin: 20px 0 0 0;
   font-weight: normal;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal,
     monospace;
@@ -171,6 +191,9 @@ dt {
   font-weight: bold;
 }
 
+li {
+  line-height: 1.4;
+}
 // ul li {
 //   list-style-image:url('../assets/bullet.png');
 // }
@@ -224,8 +247,8 @@ hr {
   color: #b5e853;
 }
 
-/* Buttons
-*/
+// ====================
+// Buttons
 
 .btn {
   display: inline-block;
@@ -260,48 +283,63 @@ hr {
   );
 }
 
-.btn .icon {
+// .btn .icon {
+//   display: inline-block;
+//   width: 16px;
+//   height: 16px;
+//   margin: 1px 8px 0 0;
+//   float: left;
+// }
+
+.github-icon,
+.twitter-icon {
   display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin: 1px 8px 0 0;
-  float: left;
+  width: 1.2em;
+  height: 1.2em;
+  margin-left: 10px;
 }
 
-.btn-github .icon {
-  opacity: 0.6;
-  background: url("../images/blacktocat.png") 0 0 no-repeat;
+.github-icon {
+  position: relative;
+  top: 4px;
 }
 
-/* Links
-   a, a:hover, a:visited
-*/
+// .btn-github .icon {
+//   opacity: 0.6;
+//   background: url("../images/blacktocat.png") 0 0 no-repeat;
+// }
 
-a:link,
-a:visited {
+// ====================
+// Links
+// ====================
+a {
+  color: $link_color;
+
+  // Removes underlines
   text-decoration: none;
 }
 
-a:hover,
-a:active {
-  text-decoration: underline;
-}
+// a:link,
+// a:visited {
+//   text-decoration: none;
+// }
 
-a {
-  color: #63c0f5;
-  //   text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
-}
+// a:hover,
+// a:active {
+//   text-decoration: underline;
+// }
 
-a:active,
-a:focus {
-  outline: 0;
-  border: none;
-  outline-style: none;
-  -moz-outline-style: none;
-}
+// a:active,
+// a:focus {
+//   outline: 0;
+//   border: none;
+//   outline-style: none;
+//   -moz-outline-style: none;
+// }
 
-/* Clearfix */
-
+// ====================
+// Clearfix
+// ====================
 .cf:before,
 .cf:after {
   content: "";
@@ -316,13 +354,19 @@ a:focus {
   zoom: 1;
 }
 
-/* Make footer stick to bottom */
-
-.pagination,
-footer {
+// ====================
+// Footer
+// ====================
+// Make footer stick to bottom
+.pagination {
   height: 50px;
   line-height: 50px;
   text-align: center;
+}
+
+footer {
+  text-align: center;
+  margin-top: 50px;
 }
 
 // #wrapper {

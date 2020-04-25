@@ -5,13 +5,13 @@
   <body>
     {% include header.html %}
 
-    <div class="container body-container">
+    <div class="main_container body-container">
       <section id="main_content">
         {{ content }}
       </section>
+      {% include footer.html %}
     </div>
 
-    {% include footer.html %}
 
     {% if site.google_analytics %}
       {%include analytics.html %}
