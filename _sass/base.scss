@@ -61,8 +61,8 @@ nav a {
   padding-right: 10px;
   padding-left: 10px;
 
-  transition: background-color 0.9s ease-out;
-  -webkit-transition: background-color 0.9s ease-out;
+  transition: background-color 0.2s ease-out;
+  -webkit-transition: background-color 0.2s ease-out;
 
 //   transition: color 0.3s ease-out;
 //   -webkit-transition: color 0.3s ease-out;
@@ -71,7 +71,7 @@ nav a {
 nav a:hover {
   color: white;
   background-color: #777;
-  border-radius: 1px;
+  border-radius: 2px;
 }
 
 .header-link {
