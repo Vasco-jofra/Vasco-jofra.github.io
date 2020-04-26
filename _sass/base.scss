@@ -52,6 +52,7 @@ nav {
   padding-bottom: 5px;
 
   margin: 0;
+
 }
 
 nav a {
@@ -61,8 +62,8 @@ nav a {
   padding-right: 10px;
   padding-left: 10px;
 
-  transition: background-color 0.2s ease-out, color 0.2s ease-out;
-  -webkit-transition: background-color 0.2s ease-out, color 0.2s ease-out;
+  transition: background-color 0.1s ease-out, color 0.1s ease-out;
+  -webkit-transition: background-color 0.1s ease-out, color 0.1s ease-out;
 
   border-radius: 2px;
 }
@@ -75,7 +76,8 @@ nav a:hover {
 .header-link {
   display: inline;
   font-size: 18px;
-  color: #666;
+  color: rgb(114, 114, 114);
+//   color: $body-foreground;
   letter-spacing: -0.03em;
 }
 
