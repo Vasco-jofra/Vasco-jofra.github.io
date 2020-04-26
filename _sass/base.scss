@@ -16,17 +16,17 @@ $link_color: #63c0f5;
 // ====================
 // Common
 // ====================
-// Both the body and the nav should have the same
+// Both the body and the nav should have the same so their width is the same
 .main-container {
   width: 100%;
   max-width: 900px;
   margin: auto;
 
-  // Padding is smaller the smaller your window sz is
+  // padding is smaller the smaller your viewport is
   padding-right: 2%;
   padding-left: 2%;
 
-  // Need so that width:100% includes the padding
+  // Needed so that width:100% includes the padding
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -81,6 +81,7 @@ nav a:hover {
 
 // ====================
 // Body
+// ====================
 body {
   // margins
   margin: 0;
@@ -108,16 +109,16 @@ body {
 
 // ====================
 // Main content
-section {
-  display: block;
-  margin: 0;
-  margin-bottom: 20px;
-}
+// section {
+//   display: block;
+//   margin: 0;
+//   margin-bottom: 20px;
+// }
 
 .body-container {
   background: $container-background;
   padding-top: 30px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 // ====================
@@ -285,47 +286,33 @@ hr {
 // ====================
 // Links
 // ====================
+// :active       Adds a style to an element that is activated
+// :focus        Adds a style to an element that has keyboard input focus
+// :hover        Adds a style to an element when you mouse over it
+// :lang         Adds a style to an element with a specific lang attribute
+// :link         Adds a style to an unvisited link
+// :visited      Adds a style to a visited link
 a {
   color: $link_color;
-
-  // Removes underlines
-  text-decoration: none;
+  text-decoration: none; // Removes underlines
 }
-
-// a:link,
-// a:visited {
-//   text-decoration: none;
-// }
-
-// a:hover,
-// a:active {
-//   text-decoration: underline;
-// }
-
-// a:active,
-// a:focus {
-//   outline: 0;
-//   border: none;
-//   outline-style: none;
-//   -moz-outline-style: none;
-// }
 
 // ====================
 // Clearfix
 // ====================
-.cf:before,
-.cf:after {
-  content: "";
-  display: table;
-}
+// .cf:before,
+// .cf:after {
+//   content: "";
+//   display: table;
+// }
 
-.cf:after {
-  clear: both;
-}
+// .cf:after {
+//   clear: both;
+// }
 
-.cf {
-  zoom: 1;
-}
+// .cf {
+//   zoom: 1;
+// }
 
 // ====================
 // Footer
@@ -338,7 +325,7 @@ a {
 }
 
 footer {
-  margin-top: 30px;
+  margin-top: 50px;
 
   width: 100%;
   text-align: center;
@@ -347,13 +334,17 @@ footer {
 // Make sure image and text of links stay together on the same line
 footer a {
   display: inline-block;
-  margin-top: 0.4em;
+
+  padding: 8px;
+  border-radius: 4px;
+}
+
+footer a:hover {
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .icon {
   width: 1.2em;
   height: 1.2em;
-  margin-left: 12px;
-  margin-right: -4px;
   vertical-align: top;
 }
