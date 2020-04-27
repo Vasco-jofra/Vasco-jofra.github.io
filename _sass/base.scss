@@ -70,15 +70,16 @@ header {
 }
 
 .header-logo img {
+  -webkit-filter: contrast(110%); // maybe
 }
 
 .header-logo img:hover {
-  // -webkit-filter: contrast(110%); // maybe
+  -webkit-filter: contrast(100%); // maybe
   // -webkit-filter: grayscale(100%);
-  -webkit-filter: brightness(1.1); // maybe
+//   -webkit-filter: brightness(1.1); // maybe
   // -webkit-filter: blur(1px);
   // -webkit-filter: saturate(1.2); // maybe
-  // -webkit-filter: hue-rotate(-45deg); // maybe
+//   -webkit-filter: hue-rotate(-45deg); // maybe
   // -webkit-filter: opacity(50%);
   // -webkit-filter: sepia(100%);
   // -webkit-filter: invert(10%);
