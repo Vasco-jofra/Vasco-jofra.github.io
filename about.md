@@ -3,10 +3,16 @@ layout: page
 title: About
 ---
 
-TODO:
- - cleanup the css file
- - improve home spacing (date should be closer to title for example)
+TODAY:
  - make color scheme(s)
+ - make the header change slightly when hovered
+ - make the logo have better resolution. It's too pixelated
+
+TODO:
+ - improve home spacing:
+   - no . in <li>'s
+   - date closer to title
+ - cleanup the css file
  - add categories and category pages
  - add tags and tag pages
  - add all the old posts

@@ -2,15 +2,15 @@
 layout: default
 ---
 
-<ul>
-    {% for post in paginator.posts %}
-      <li>
-          <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
-          <p> {{ post.excerpt }} </p>
-      </li>
-      <br>
-    {% endfor %}
+<ul class="no-bullet">
+  {% for post in paginator.posts %}
+    <li>
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      <time class="post-time" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
+      <p> {{ post.excerpt }} </p>
+    </li>
+    <br>
+  {% endfor %}
 
     {% if paginator.total_pages > 1 %}
     <div class="pagination">
