@@ -3,21 +3,20 @@ layout: page
 title: About
 ---
 
-TODAY:
- - make color scheme(s)
- - make the header change slightly when hovered
- - make the logo have better resolution. It's too pixelated
-
 TODO:
- - improve home spacing:
-   - no . in <li>'s
-   - date closer to title
+ - make color scheme(s)
+ - make the logo have better resolution. It's too pixelated
  - cleanup the css file
  - add categories and category pages
  - add tags and tag pages
  - add all the old posts
 
 DONE:
+ - make the header change slightly when hovered
+ - improve home page:
+   - no . in <li>'s
+   - date closer to title
+   - hover on posts
  - footer image + text should always stay on the same line
  - footer (add github, twitter, RSS, archive)
  - bg image blurred

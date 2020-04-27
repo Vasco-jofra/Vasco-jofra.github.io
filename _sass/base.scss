@@ -16,6 +16,14 @@ $link_color: #63c0f5;
 // ====================
 // Common
 // ====================
+* {
+  // Needed so that width:100% includes the padding
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+}
+
 // Both the body and the nav should have the same so their width is the same
 .main-container {
   width: 100%;
@@ -25,12 +33,6 @@ $link_color: #63c0f5;
   // padding is smaller the smaller your viewport is
   padding-right: 2%;
   padding-left: 2%;
-
-  // Needed so that width:100% includes the padding
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
 }
 
 // ====================
@@ -50,9 +52,9 @@ body {
 
   // background
   background: $body-background;
-  background-image: url("/assets/bkg.png");
-  background-repeat: repeat-y;
-  background-position-x: center;
+  //   background-image: url("/assets/bkg.png");
+  //   background-repeat: repeat-y;
+  //   background-position-x: center;
 }
 
 // ====================
@@ -68,19 +70,18 @@ header {
 }
 
 .header-logo img {
-  //   -webkit-filter: blur(5px);
 }
 
 .header-logo img:hover {
+  // -webkit-filter: contrast(110%); // maybe
   // -webkit-filter: grayscale(100%);
-  // -webkit-filter: brightness(1.1); // maybe
-  //   -webkit-filter: blur(1px);
-  //   -webkit-filter: saturate(1.2); // maybe
-  //   -webkit-filter: hue-rotate(-45deg); // maybe
-  //   -webkit-filter: contrast(110%); // maybe
-  //   -webkit-filter: opacity(50%);
-  //   -webkit-filter: sepia(100%);
-  //   -webkit-filter: invert(10%);
+  -webkit-filter: brightness(1.1); // maybe
+  // -webkit-filter: blur(1px);
+  // -webkit-filter: saturate(1.2); // maybe
+  // -webkit-filter: hue-rotate(-45deg); // maybe
+  // -webkit-filter: opacity(50%);
+  // -webkit-filter: sepia(100%);
+  // -webkit-filter: invert(10%);
 }
 
 nav {
@@ -102,7 +103,7 @@ nav a {
   transition: background-color 0.1s ease-out, color 0.1s ease-out;
   -webkit-transition: background-color 0.1s ease-out, color 0.1s ease-out;
 
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 nav a:hover {
@@ -121,12 +122,6 @@ nav a:hover {
 // ====================
 // Footer
 // ====================
-.pagination {
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-}
-
 footer {
   margin-top: 50px;
 
@@ -153,12 +148,52 @@ footer a:hover {
 }
 
 // ====================
-// Main content
+// Pagination
 // ====================
-.content-container {
-  background: $container-background;
-  padding-top: 30px;
-  padding-bottom: 10px;
+.pagination {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.pagination-button {
+  // color: rgb(216, 216, 216);
+  // background-color: #777;
+  // background-color: #f1f1f1;
+  // background-color: rgba(0, 0, 0, 0.4);
+  // color: black;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.pagination-number {
+  border-radius: 50%;
+  padding: 3px;
+}
+
+.pagination a:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+// ====================
+// home page
+// ====================
+.home-post {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.home-post:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.home-post h2 {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.home-post a {
+  color: inherit;
 }
 
 .post-time {
@@ -166,8 +201,18 @@ footer a:hover {
   color: rgba(255, 255, 255, 0.5);
 }
 
+// ====================
+// Main content
+// ====================
+.content-container {
+  background: $container-background;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
 #main_content {
   width: 100%;
+
   // Only for MAC.. probably should not be used? https://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/
   // -webkit-font-smoothing: antialiased;
 }
@@ -186,7 +231,7 @@ h6 {
   font-weight: normal;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal,
     monospace;
-  color: $header;
+  color: #63c0f5; // $header;
   letter-spacing: -0.03em;
   //   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
   //                0 0 5px rgba(181, 232, 83, 0.1),
