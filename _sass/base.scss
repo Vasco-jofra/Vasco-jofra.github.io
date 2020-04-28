@@ -164,13 +164,8 @@ footer a:hover {
 }
 
 .pagination-element {
-  // color: rgb(216, 216, 216);
-  // background-color: #777;
-  // background-color: #f1f1f1;
-  // background-color: rgba(0, 0, 0, 0.4);
-  // color: black;
-  border-radius: 50%;
-  padding: 6px;
+  border-radius: 4px;
+  padding: 8px;
 }
 
 .pagination a:hover {
@@ -217,6 +212,11 @@ footer a:hover {
 
   // Only for MAC.. probably should not be used? https://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/
   // -webkit-font-smoothing: antialiased;
+}
+
+article a:hover {
+    text-decoration: underline;
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 section img {

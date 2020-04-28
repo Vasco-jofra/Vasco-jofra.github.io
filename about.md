@@ -3,11 +3,14 @@ layout: page
 title: About
 ---
 
-TODO:
+TODAY:
  - make color scheme(s)
- - make the logo have better resolution. It's too pixelated
+ - improve readability
  - cleanup the css file
+
+TODO:
  - check firefox different behavior on link active
+ - make the logo have better resolution. It's too pixelated
  - add categories and category pages
  - add tags and tag pages
  - add all the old posts
