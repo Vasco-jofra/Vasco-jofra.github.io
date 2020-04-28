@@ -9,6 +9,8 @@ TODAY:
  - cleanup the css file
 
 TODO:
+ - next post at the end of a post?
+ - comments?
  - check firefox different behavior on link active
  - make the logo have better resolution. It's too pixelated
  - add categories and category pages
