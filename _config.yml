@@ -1,28 +1,11 @@
+source: .
+destination: ./_site
+
+baseurl: /
 title: jofra
 # description: "TODO: Blog description"
 author:
   name: "jofra"
-
-baseurl: /
-
-source: .
-destination: ./_site
-# permalink: /:title
-permalink: /:categories/:day/:month/:year/:title
-
-# jekyll-paginate (https://jekyllrb.com/docs/pagination/)
-# paginator.page                The number of the current page
-# paginator.per_page            Number of posts per page
-# paginator.posts               Posts available for the current page
-# paginator.total_posts         Total number of posts
-# paginator.total_pages         Total number of pages
-# paginator.previous_page       The number of the previous page, or nil if no previous page exists
-# paginator.previous_page_path  The path to the previous page, or nil if no previous page exists
-# paginator.next_page           The number of the next page, or nil if no subsequent page exists
-# paginator.next_page_path      The path to the next page, or nil if no subsequent page exists
-
-paginate: 6 # @@TODO: change me to 50
-paginate_path: /page/:num/
 
 defaults:
   -
@@ -31,6 +14,28 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+
+# permalink: /:title
+permalink: /:categories/:day/:month/:year/:title
+
+# jekyll-paginate (https://jekyllrb.com/docs/pagination/)
+paginate: 6 # @@TODO: change me to 50
+paginate_path: /page/:num/
+
+# jekyll-compress-html https://github.com/penibelst/jekyll-compress-html
+compress_html:
+  clippings: all
+  endings: []
+  comments: ["<!-- ", " -->"]
+  ignore:
+    envs: []
+  blanklines: false
+  profile: false
+
+# sass
+sass:
+    sass_dir: _sass
+    style: compact
 
 # Should publish post with dates in the future
 future: false

@@ -7,11 +7,13 @@ TODO:
  - make color scheme(s)
  - make the logo have better resolution. It's too pixelated
  - cleanup the css file
+ - check firefox different behavior on link active
  - add categories and category pages
  - add tags and tag pages
  - add all the old posts
 
 DONE:
+ - fix extra spacing in inline-block elements
  - make the header change slightly when hovered
  - improve home page:
    - no . in <li>'s

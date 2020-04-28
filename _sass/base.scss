@@ -1,16 +1,20 @@
-/*
-   original: https://github.com/pages-themes/hacker
-*/
+// original: https://github.com/pages-themes/hacker
 
 @import "rouge-base16-dark";
 @import "default_colors";
 
-$body-background: #202020 !default;
-$body-foreground: $gallery !default;
-$header: $conifer !default;
-$blockquote-color: $silver-chalice !default;
-$blockquote-border: $dove-grey !default;
-$container-background: $cod-grey !default;
+$body_background: #202020;
+$text_color: #eaeaea;
+
+$background_color: #202020;
+$header_logo_background_color: #101010;
+$header_nav_background_color: #0d0d0d;
+$text_color: #eaeaea;
+
+$header: #b5e853;
+$blockquote-color: #aaa;
+$blockquote-border: #666;
+$container-background: #151515;
 $link_color: #63c0f5;
 
 // ====================
@@ -48,10 +52,10 @@ body {
   line-height: 1.4;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal,
     monospace;
-  color: $body-foreground;
+  color: $text_color;
 
   // background
-  background: $body-background;
+  background: $body_background;
   //   background-image: url("/assets/bkg.png");
   //   background-repeat: repeat-y;
   //   background-position-x: center;
@@ -61,7 +65,7 @@ body {
 // Header
 // ====================
 header {
-  background: #101010; // rgba(0, 0, 0, 0.5);
+  background: $header_logo_background_color;
 }
 
 .header-logo {
@@ -70,23 +74,25 @@ header {
 }
 
 .header-logo img {
+  filter: contrast(110%); // maybe
   -webkit-filter: contrast(110%); // maybe
 }
 
 .header-logo img:hover {
+  filter: contrast(100%); // maybe
   -webkit-filter: contrast(100%); // maybe
   // -webkit-filter: grayscale(100%);
-//   -webkit-filter: brightness(1.1); // maybe
+  //   -webkit-filter: brightness(1.1); // maybe
   // -webkit-filter: blur(1px);
   // -webkit-filter: saturate(1.2); // maybe
-//   -webkit-filter: hue-rotate(-45deg); // maybe
+  //   -webkit-filter: hue-rotate(-45deg); // maybe
   // -webkit-filter: opacity(50%);
   // -webkit-filter: sepia(100%);
   // -webkit-filter: invert(10%);
 }
 
 nav {
-  background: #0d0d0d; // rgba(0, 0, 0, 0.2);
+  background: $header_nav_background_color; // rgba(0, 0, 0, 0.2);
 
   padding-top: 5px;
   padding-bottom: 5px;
@@ -116,7 +122,7 @@ nav a:hover {
   display: inline;
   font-size: 18px;
   color: rgb(114, 114, 114);
-  //   color: $body-foreground;
+  //   color: $text_color;
   letter-spacing: -0.03em;
 }
 
@@ -152,24 +158,19 @@ footer a:hover {
 // Pagination
 // ====================
 .pagination {
+  text-align: center;
   height: 50px;
   line-height: 50px;
-  text-align: center;
 }
 
-.pagination-button {
+.pagination-element {
   // color: rgb(216, 216, 216);
   // background-color: #777;
   // background-color: #f1f1f1;
   // background-color: rgba(0, 0, 0, 0.4);
   // color: black;
   border-radius: 50%;
-  padding: 4px;
-}
-
-.pagination-number {
-  border-radius: 50%;
-  padding: 3px;
+  padding: 6px;
 }
 
 .pagination a:hover {
