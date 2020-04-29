@@ -3,19 +3,49 @@
 @import "rouge-base16-dark";
 @import "default_colors";
 
-$body_background: #202020;
-$text_color: #eaeaea;
+// https://material.io/design/color/dark-theme.html#properties
+//  - good tips
 
+// Tips on colors: https://uxplanet.org/8-tips-for-dark-theme-design-8dfc2f8f7ab6
+//  - Higher elevation, lighter surface
+
+// Color is important: https://blog.tubikstudio.com/color-in-ui-design-look-on-the-bright-side/
+//  -
+
+// Test contrast of 2 colors: (https://contrast-ratio.com/?ref=uxprocc#rgba%28255%2C255%2C255%2C%200.87%29-on-%23121212)
+
+// ====================
+// Fonts
+// ====================
+$font_headers: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+$font_main_text: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// ====================
+// Colors
+// ====================
+$monster_red: desaturate(#8d2325, 0);
+$link_blue: #63c0f5;
+
+// Background colors (people suggest lighter backgrounds to show elevation, but here I think darkening looks better)
+// $background_color: #191716;
 $background_color: #202020;
-$header_logo_background_color: #101010;
-$header_nav_background_color: #0d0d0d;
-$text_color: #eaeaea;
+$logo_background_color: #121212;
+$nav_background_color: #080808;
+$container_background_color: $logo_background_color;
 
+// Text color
+$high_emphasis_text_color: rgba(255, 255, 255, 0.87);
+$medium_high_emphasis_text_color: rgba(255, 255, 255, 0.75);
+$medium_emphasis_text_color: rgba(255, 255, 255, 0.55);
+$low_emphasis_text_color: rgba(255, 255, 255, 0.38);
+
+$link_color: $link_blue;
+$header_color: $link_blue;
+
+// @@TODO: To check
 $header: #b5e853;
 $blockquote-color: #aaa;
 $blockquote-border: #666;
-$container-background: #151515;
-$link_color: #63c0f5;
 
 // ====================
 // Common
@@ -48,14 +78,14 @@ body {
   padding: 0;
 
   // text
-  font-size: 14px;
-  line-height: 1.4;
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal,
-    monospace;
-  color: $text_color;
+  color: $medium_high_emphasis_text_color;
+  font-family: $font_main_text;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
 
   // background
-  background: $body_background;
+  background: $background_color;
   //   background-image: url("/assets/bkg.png");
   //   background-repeat: repeat-y;
   //   background-position-x: center;
@@ -65,7 +95,7 @@ body {
 // Header
 // ====================
 header {
-  background: $header_logo_background_color;
+  background: $logo_background_color;
 }
 
 .header-logo {
@@ -92,7 +122,7 @@ header {
 }
 
 nav {
-  background: $header_nav_background_color; // rgba(0, 0, 0, 0.2);
+  background: $nav_background_color; // rgba(0, 0, 0, 0.2);
 
   padding-top: 6px;
   padding-bottom: 6px;
@@ -119,6 +149,8 @@ nav a:hover {
 }
 
 .header-link {
+  font-family: $font_headers;
+
   display: inline;
   font-size: 18px;
   color: rgb(114, 114, 114);
@@ -175,6 +207,10 @@ footer a:hover {
 // ====================
 // home page
 // ====================
+.home-posts a {
+  color: inherit;
+}
+
 .home-post {
   padding: 20px;
   border-radius: 10px;
@@ -189,20 +225,16 @@ footer a:hover {
   padding-top: 0px;
 }
 
-.home-post a {
-  color: inherit;
-}
-
 .post-time {
   font-size: 0.9em;
-  color: rgba(255, 255, 255, 0.5);
+  color: $medium_emphasis_text_color;
 }
 
 // ====================
 // Main content
 // ====================
 .content-container {
-  background: $container-background;
+  background: $container_background_color;
   padding-top: 20px;
   padding-bottom: 10px;
 }
@@ -215,8 +247,8 @@ footer a:hover {
 }
 
 article a:hover {
-    text-decoration: underline;
-    // background-color: rgba(0, 0, 0, 0.9);
+  text-decoration: underline;
+  // background-color: rgba(0, 0, 0, 0.9);
 }
 
 section img {
@@ -231,13 +263,12 @@ h5,
 h6 {
   margin: 20px 0 0 0;
   font-weight: normal;
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal,
-    monospace;
-  color: #63c0f5; // $header;
+  font-family: $font_headers;
+  color: $header_color;
   letter-spacing: -0.03em;
-  //   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
-  //                0 0 5px rgba(181, 232, 83, 0.1),
-  //                0 0 10px rgba(181, 232, 83, 0.1);
+  // text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
+  //              0 0 5px rgba(181, 232, 83, 0.1),
+  //              0 0 10px rgba(181, 232, 83, 0.1);
 }
 
 #main_content h1 {
@@ -293,6 +324,11 @@ a {
 // ====================
 // unorganized
 // ====================
+strong {
+  font-weight: normal;
+  text-decoration: underline;
+}
+
 dt {
   font-style: italic;
   font-weight: bold;
@@ -312,11 +348,12 @@ blockquote {
 }
 
 pre {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(255, 255, 255, 0.05);
+  //   background: rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 10px;
   font-size: 14px;
-  color: #b5e853;
+  //   color: #b5e853;
   border-radius: 2px;
   text-wrap: normal;
   overflow: auto;
@@ -324,11 +361,12 @@ pre {
 }
 
 code.highlighter-rouge {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(255, 255, 255, 0.09);
+  //   background: rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 0px 3px;
-  margin: 0px -3px;
-  color: #aa759f;
+  padding: 1px;
+  //   margin: -1px;
+  color: $high_emphasis_text_color;
   border-radius: 2px;
 }
 
