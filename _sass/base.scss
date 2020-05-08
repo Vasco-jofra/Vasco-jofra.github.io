@@ -50,12 +50,12 @@ $container_background_color: #121212;
 // $bg_color_light: rgba(24, 24, 24, 1);
 
 // Option 2: red-ish warm background
-$bg_color_dark: rgba(15, 10, 12, 1);
-$bg_color_light: rgba(35, 32, 29, 1);
+// $bg_color_dark: rgba(15, 10, 12, 1);
+// $bg_color_light: rgba(35, 32, 29, 1);
 
 // Option 3:
-// $bg_color_light: $logo_background_color;
-// $bg_color_dark: $logo_background_color;
+$bg_color_light: $logo_background_color;
+$bg_color_dark: $logo_background_color;
 
 $background_color: $logo_background_color
   linear-gradient(
