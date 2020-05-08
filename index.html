@@ -6,10 +6,11 @@ layout: default
   {% for post in paginator.posts %}
     <a href="{{ post.url }}">
       <div class="home-post">
-        <h2>{{ post.title }}</h2>
+        <h2 class="post-title">{{ post.title }}</h2>
         <time class="post-time" datetime="{{ post.date | date_to_xmlschema }}">
           {{ post.date | date_to_string }}
         </time>
+        <no_spaces class="post-author"> by {{ post.author }}</no_spaces>
         <!-- <p> Category: {{ post.categories }}</p> -->
         <!-- <p> Tags: {{ post.tags | join: ", " }}</p> -->
         <p> {{ post.excerpt }} </p>

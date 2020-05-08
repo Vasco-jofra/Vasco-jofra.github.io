@@ -14,6 +14,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+      author: "jofra"
 
 # permalink: /:title
 permalink: /:categories/:day/:month/:year/:title

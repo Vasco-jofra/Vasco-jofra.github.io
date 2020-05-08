@@ -96,7 +96,7 @@
     {%- endfor -%}
 
     {%- comment -%} jofra: My hack to remove whitespaces in inline-block elements {%- endcomment -%}
-    {%- assign _content = _content | replace: "<no_spaces> ", "<no_spaces>" | replace: " <no_spaces>", "<no_spaces>" -%}
+    {%- assign _content = _content | replace: "<no_spaces> ", "<no_spaces>" | replace: " <no_spaces", "<no_spaces" -%}
     {%- assign _content = _content | replace: "</no_spaces> ", "</no_spaces>" | replace: " </no_spaces>", "</no_spaces>" -%}
     {%- assign _content = _content | replace: "<no_spaces>", "" | replace: "</no_spaces>", "" -%}
 
