@@ -1,7 +1,7 @@
 ---
 title: "ConnectedSpoon | InsHack 2017"
 categories: ["pwn"]
-tags: ["ASLR"]
+tags: ["stack overflow", "shellcode", "ASLR"]
 Points: 150
 Solves: 42
 ---

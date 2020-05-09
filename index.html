@@ -7,9 +7,10 @@ layout: default
     <a href="{{ post.url }}">
       <div class="home-post">
         {% include post_title.html %}
-        <!-- <p> Category: {{ post.categories }}</p> -->
-        <!-- <p> Tags: {{ post.tags | join: ", " }}</p> -->
-        <p> {{ post.excerpt }} </p>
+        <!-- FIXME: Temporary fix because having tag links is messing up the home-post link -->
+        <a href="{{ post.url }}">
+          <p> {{ post.excerpt }} </p>
+        </a>
       </div>
     </a>
     <br>

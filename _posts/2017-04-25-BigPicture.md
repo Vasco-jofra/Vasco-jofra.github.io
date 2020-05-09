@@ -1,7 +1,7 @@
 ---
 title: "BigPicture | Plaid CTF 2017"
 categories: ["pwn"]
-tags: []
+tags: ["stack overflow"]
 Points: 200
 Solves: 67
 ---
