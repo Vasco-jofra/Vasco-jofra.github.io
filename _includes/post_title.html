@@ -1,4 +1,12 @@
-<h1 class="post-title">{{ post.title }}</h1>
+<div style="display: flex; justify-content: space-between;">
+  <h1 class="post-title">{{ post.title }}</h1>
+  <div>
+    {% for tag in post.tags %}
+      <code class="language-plaintext highlighter-rouge">{{tag}}</code>
+    {% endfor %}
+  </div>
+</div>
+
 <time class="post-time" datetime="{{ post.date | date_to_xmlschema }}">
-  {{- post.date | date_to_string -}}
-</time><span class="post-author">, {{ post.author }}</span>
+  {{- post.date | date_to_string -}} </time
+><span class="post-author">, {{ post.author }}</span>
