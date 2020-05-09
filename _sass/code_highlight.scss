@@ -48,8 +48,8 @@ $silver-chalice: #aaa;
   $deleted: #CE9178;
   $header: #000080;
   $function_call: #DCDCAA;
-  $error-foreground: red; // unsure what these 2 are
-  $error-background: red;
+  $error-foreground: $plaintext;
+  $error-background: rgba(255, 0, 0, 0.5);
 
   color: $plaintext;
 
