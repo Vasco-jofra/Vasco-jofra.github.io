@@ -2,11 +2,11 @@
 title: "ConnectedSpoon | InsHack 2017"
 categories: ["pwn"]
 tags: ["stack overflow", "shellcode", "ASLR"]
-Points: 150
-Solves: 42
+points: 150
+solves: 42
 ---
 
-Who new bruteforcing ASLR on 32 bit was so easy!
+Who knew bruteforcing ASLR on 32 bit was so easy!
 
 ## Checksec
 ```

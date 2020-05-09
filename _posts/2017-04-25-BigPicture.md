@@ -2,8 +2,8 @@
 title: "BigPicture | Plaid CTF 2017"
 categories: ["pwn"]
 tags: ["stack overflow"]
-Points: 200
-Solves: 67
+points: 200
+solves: 67
 ---
 
 I wasn't able to solve this challenge during the CTF, but I decided read a writeup and try again! In this post I'll share what I learned.

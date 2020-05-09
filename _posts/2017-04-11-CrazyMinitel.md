@@ -2,8 +2,8 @@
 title: "CrazyMinitel | InsHack 2017"
 categories: ["pwn"]
 tags: ["stack overflow", "shellcode"]
-Points: 125
-Solves: 77
+points: 125
+solves: 77
 ---
 
 Today we will solve a simple pwnable challenge by inserting shellcode on the stack with a nop sled, and then jumping to it.

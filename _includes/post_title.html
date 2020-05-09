@@ -3,14 +3,18 @@
   <div>
     <!-- having this a's here creates nestes links which does not work very well. Check if we want to keep it like that -->
     {% for category in post.categories %}
-      <a href="/assets/bullet.png"><code class="language-plaintext highlighter-rouge">{{category}}</code></a>
-    {% endfor %}
-    {% for tag in post.tags %}
-      <a href="/assets/bullet.png"><code class="language-plaintext highlighter-rouge">{{tag}}</code></a>
+    <a href="/assets/bullet.png"
+      ><code class="language-plaintext highlighter-rouge">{{category}}</code></a
+    >
+    {% endfor %} {% for tag in post.tags %}
+    <a href="/assets/bullet.png"
+      ><code class="language-plaintext highlighter-rouge">{{tag}}</code></a
+    >
     {% endfor %}
   </div>
 </div>
 
 <time class="post-time" datetime="{{ post.date | date_to_xmlschema }}">
-  {{- post.date | date_to_string -}} </time
-><span class="post-author">, {{ post.author }}</span>
+  {{- post.date | date_to_string -}}
+</time>
+<span class="post-author"> | {{ post.authors | | join: ', '}}</span>

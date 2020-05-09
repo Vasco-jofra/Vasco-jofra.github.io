@@ -2,8 +2,8 @@
 title: "EasyToSay | Hitcon 2017"
 categories: ["pwn"]
 tags: ["shellcode"]
-Points: 144
-Solves: 139
+points: 144
+solves: 139
 ---
 
 This is a writeup explaining how I wrote a shellcode payload bypassing a size limit and avoiding repeated bytes.
