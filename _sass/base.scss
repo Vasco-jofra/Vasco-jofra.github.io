@@ -1,18 +1,7 @@
 // original: https://github.com/pages-themes/hacker
+// barely recognizable though
 
-@import "rouge-base16-dark";
-@import "default_colors";
-
-// https://material.io/design/color/dark-theme.html#properties
-//  - good tips
-
-// Tips on colors: https://uxplanet.org/8-tips-for-dark-theme-design-8dfc2f8f7ab6
-//  - Higher elevation, lighter surface
-
-// Color is important: https://blog.tubikstudio.com/color-in-ui-design-look-on-the-bright-side/
-//  -
-
-// Test contrast of 2 colors: (https://contrast-ratio.com/?ref=uxprocc#rgba%28255%2C255%2C255%2C%200.87%29-on-%23121212)
+@import "code_highlight";
 
 // ====================
 // Fonts
@@ -24,11 +13,11 @@ $font_main_text: "Helvetica Neue", Helvetica, Arial, sans-serif;
 // ====================
 // Colors
 // ====================
-$monster_red: desaturate(#8d2325, 0);
+$monster_red: #8d2325;
 $link_blue: #63c0f5;
 
 // Text color
-$highest_emphasis_text_color: white;
+$highest_emphasis_text_color: rgba(255, 255, 255, 1);
 $high_emphasis_text_color: rgba(255, 255, 255, 0.87);
 $medium_high_emphasis_text_color: rgba(255, 255, 255, 0.75);
 $medium_emphasis_text_color: rgba(255, 255, 255, 0.55);
@@ -39,8 +28,8 @@ $logo_background_color: #0c0c0c;
 
 // Nav bar
 $nav_background_color: #080707;
-$nav_link_color: rgb(216, 216, 216);
-$nav_link_hover: #777;
+$nav_link_color: #d8d8d8;
+$nav_link_hover: #777777;
 
 // Main body bg
 $container_background_color: #121212;
@@ -49,11 +38,11 @@ $container_background_color: #121212;
 // $bg_color_dark: rgba(12, 12, 12, 1);
 // $bg_color_light: rgba(24, 24, 24, 1);
 
-// Option 2: red-ish warm background
+// Option 2: red-ish warm background <-- I like this one, but does not work on all monitors and all browsers. Looks stripy
 // $bg_color_dark: rgba(15, 10, 12, 1);
 // $bg_color_light: rgba(35, 32, 29, 1);
 
-// Option 3:
+// Option 3: solid color
 $bg_color_light: $logo_background_color;
 $bg_color_dark: $logo_background_color;
 
@@ -131,7 +120,6 @@ body {
   background-position-x: center;
   background-repeat: repeat-y;
   //   background-image: url("/assets/bkg.png");
-  //   background-repeat: repeat-y;
 }
 
 // ====================
@@ -163,8 +151,9 @@ header {
   // -webkit-filter: sepia(100%);
   // -webkit-filter: invert(10%);
 }
+
 nav {
-  background: $nav_background_color; // rgba(0, 0, 0, 0.2);
+  background: $nav_background_color;
   border-top: $article_border;
 
   padding-top: 4px;
@@ -182,7 +171,6 @@ nav {
   display: inline;
   font-size: 18px;
   color: $medium_emphasis_text_color;
-  //   color: $text_color;
   letter-spacing: -0.03em;
 
   padding-top: 6px;
@@ -191,10 +179,10 @@ nav {
   padding-right: 10px;
   padding-left: 10px;
 
-  transition: background-color 0.1s ease-out, color 0.1s ease-out;
-  -webkit-transition: background-color 0.1s ease-out, color 0.1s ease-out;
+//   transition: background-color 0.1s ease-out, color 0.1s ease-out;
+//   -webkit-transition: background-color 0.1s ease-out, color 0.1s ease-out;
 
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .nav-link:hover {
@@ -267,7 +255,7 @@ footer a:hover {
 
 .home-post {
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 
 .home-post:hover {
@@ -333,6 +321,7 @@ h1 {
 }
 
 h2 {
+  margin-top: 2.5em;
   font-size: 1.6em;
 }
 
@@ -448,68 +437,10 @@ td {
   padding: 5px 10px;
 }
 
+// ====================
+// horizontal ruler
+// ====================
 hr {
   border: 0px;
   border-bottom: 1px solid $separator_color;
 }
-
-// ====================
-// Buttons
-// ====================
-// .btn {
-//   display: inline-block;
-//   background: -webkit-linear-gradient(
-//     top,
-//     rgba(40, 40, 40, 0.3),
-//     rgba(35, 35, 35, 0.3) 50%,
-//     rgba(10, 10, 10, 0.3) 50%,
-//     rgba(0, 0, 0, 0.3)
-//   );
-//   padding: 8px 18px;
-//   border-radius: 50px;
-//   border: 2px solid rgba(0, 0, 0, 0.7);
-//   border-bottom: 2px solid rgba(0, 0, 0, 0.7);
-//   border-top: 2px solid rgba(0, 0, 0, 1);
-//   color: rgba(255, 255, 255, 0.8);
-//   font-family: Helvetica, Arial, sans-serif;
-//   font-weight: bold;
-//   font-size: 13px;
-//   text-decoration: none;
-//   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
-//   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-// }
-
-// .btn:hover {
-//   background: -webkit-linear-gradient(
-//     top,
-//     rgba(40, 40, 40, 0.6),
-//     rgba(35, 35, 35, 0.6) 50%,
-//     rgba(10, 10, 10, 0.8) 50%,
-//     rgba(0, 0, 0, 0.8)
-//   );
-// }
-
-// .btn .icon {
-//   display: inline-block;
-//   width: 16px;
-//   height: 16px;
-//   margin: 1px 8px 0 0;
-//   float: left;
-// }
-
-// ====================
-// Clearfix
-// ====================
-// .cf:before,
-// .cf:after {
-//   content: "";
-//   display: table;
-// }
-
-// .cf:after {
-//   clear: both;
-// }
-
-// .cf {
-//   zoom: 1;
-// }

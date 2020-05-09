@@ -20,7 +20,7 @@ defaults:
 permalink: /:categories/:day/:month/:year/:title
 
 # jekyll-paginate (https://jekyllrb.com/docs/pagination/)
-paginate: 2 # @@TODO: change me to 50
+paginate: 50
 paginate_path: /page/:num/
 
 # jekyll-compress-html (https://github.com/penibelst/jekyll-compress-html)

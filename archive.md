@@ -6,7 +6,7 @@ title: Archive
 <section>
   {% if site.posts[0] %}
 
-    <h2>{{ site.posts[0].date | date: '%Y' }}</h2>
+    <h4>{{ site.posts[0].date | date: '%Y' }}</h4>
 
     {%for post in site.posts %}
       {% unless post.next %}
@@ -16,7 +16,7 @@ title: Archive
         {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
         {% if year != nyear %}
           </ul>
-          <h2>{{ year }}</h2>
+          <h4>{{ year }}</h4>
           <ul>
         {% endif %}
       {% endunless %}
