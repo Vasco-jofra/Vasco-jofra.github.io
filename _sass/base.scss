@@ -179,8 +179,8 @@ nav {
   padding-right: 10px;
   padding-left: 10px;
 
-//   transition: background-color 0.1s ease-out, color 0.1s ease-out;
-//   -webkit-transition: background-color 0.1s ease-out, color 0.1s ease-out;
+  //   transition: background-color 0.1s ease-out, color 0.1s ease-out;
+  //   -webkit-transition: background-color 0.1s ease-out, color 0.1s ease-out;
 
   border-radius: 2px;
 }
@@ -321,7 +321,7 @@ h1 {
 }
 
 h2 {
-  margin-top: 2.5em;
+  margin-top: 2em;
   font-size: 1.6em;
 }
 
@@ -386,11 +386,14 @@ pre {
 
 // inline code
 code.highlighter-rouge {
+  padding: 1px;
+  border-radius: 2px;
+
   background: $code_bg;
   border: $code_border;
-  padding: 1px;
+
   color: $high_emphasis_text_color;
-  border-radius: 2px;
+  font-size: 0.875em;
 }
 
 // ====================
