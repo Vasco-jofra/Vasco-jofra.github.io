@@ -4,6 +4,7 @@ title: TODO
 ---
 
 TODO:
+ - check RSS: too much text
  - next post at the end of a post?
  - comments?
  - check firefox different behavior on link active
