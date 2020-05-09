@@ -1,5 +1,6 @@
 ---
 title: Sample Page
+published: false
 ---
 
 This is a sample page.
