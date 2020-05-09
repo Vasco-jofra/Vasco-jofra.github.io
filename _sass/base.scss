@@ -73,12 +73,12 @@ $link_color: #63c0f5;
 $link_hover_background: rgba(0, 0, 0, 0.4);
 
 $header_color: $link_color;
-$separator_color: $medium_emphasis_text_color;
+$separator_color: $low_emphasis_text_color;
 
 $article_border: 1px solid rgba(255, 255, 255, 0.05);
 
 // Code
-$code_bg: #1e1e1e;//  rgba(255, 255, 255, 0.05);
+$code_bg: #1e1e1e; //  rgba(255, 255, 255, 0.05);
 $code_border: 1px solid rgba(255, 255, 255, 0.15);
 
 // @@TODO: To check
@@ -101,7 +101,6 @@ $blockquote_border_color: #666;
   width: 100%;
   max-width: 900px;
   margin: auto;
-  //   margin-bottom: 50px;
 
   // padding is smaller the smaller your viewport is
   padding-right: 2%;
@@ -215,6 +214,7 @@ footer {
 
 // Make sure image and text of links stay together on the same line
 footer a {
+  //   color: $high_emphasis_text_color;
   display: inline-block;
 
   padding: 8px;
@@ -228,7 +228,11 @@ footer a:hover {
 .icon {
   width: 1.2em;
   height: 1.2em;
-  vertical-align: top;
+  //   vertical-align: top;
+
+  margin-top: 2px;
+  margin-right: 8px;
+  float: left;
 }
 
 // ====================
@@ -338,7 +342,7 @@ h3 {
 }
 
 h4 {
-  font-size: 1.0em;
+  font-size: 1em;
 }
 
 // ====================
@@ -364,7 +368,8 @@ p {
   margin-top: 0.8em;
 }
 
-ul, ol {
+ul,
+ol {
   margin: 0.25em;
 }
 
@@ -410,7 +415,7 @@ code.highlighter-rouge {
 // Bold option 2
 strong {
   font-weight: bold;
-  color: $highest_emphasis_text_color;
+  color: $high_emphasis_text_color;
 }
 
 // Bold option 3
@@ -444,7 +449,8 @@ td {
 }
 
 hr {
-  border: 1px solid $separator_color;
+  border: 0px;
+  border-bottom: 1px solid $separator_color;
 }
 
 // ====================

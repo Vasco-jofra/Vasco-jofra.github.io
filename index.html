@@ -10,7 +10,7 @@ layout: default
         <time class="post-time" datetime="{{ post.date | date_to_xmlschema }}">
           {{ post.date | date_to_string }}
         </time>
-        <no_spaces class="post-author"> by {{ post.author }}</no_spaces>
+        <span class="post-author"> by {{ post.author }}</span>
         <!-- <p> Category: {{ post.categories }}</p> -->
         <!-- <p> Tags: {{ post.tags | join: ", " }}</p> -->
         <p> {{ post.excerpt }} </p>

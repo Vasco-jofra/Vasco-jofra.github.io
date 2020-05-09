@@ -47,6 +47,7 @@ $silver-chalice: #aaa;
   $string-escape: #D7BA7D;
   $deleted: #CE9178;
   $header: #000080;
+  $function_call: #DCDCAA;
   $error-foreground: red; // unsure what these 2 are
   $error-background: red;
 
@@ -106,6 +107,9 @@ $silver-chalice: #aaa;
   }
   .m,  .mf,  .mh,  .mi,  .il,  .mo,  .mb,  .mx {
     color: $literal;
+  }
+  .nb {
+    color: $function_call;
   }
   .ss {
     color: $string;
