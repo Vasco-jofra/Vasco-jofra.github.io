@@ -1,5 +1,5 @@
 ---
-title: "EasyToSay | Hitcon2017"
+title: "EasyToSay | Hitcon 2017"
 categories: ["pwn"]
 tags: ["shellcode"]
 Points: 144
