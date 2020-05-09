@@ -16,8 +16,8 @@ defaults:
       layout: "post"
       author: "jofra"
 
-# permalink: /:title
-permalink: /:categories/:day/:month/:year/:title
+permalink: /:title
+# permalink: /:categories/:day/:month/:year/:title
 
 # jekyll-paginate (https://jekyllrb.com/docs/pagination/)
 paginate: 50

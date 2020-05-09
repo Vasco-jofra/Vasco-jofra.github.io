@@ -1,8 +1,12 @@
 <div style="display: flex; justify-content: space-between;">
   <h1 class="post-title">{{ post.title }}</h1>
   <div>
+    <!-- having this a's here creates nestes links which does not work very well. Check if we want to keep it like that -->
+    {% for category in post.categories %}
+      <a href="/assets/bullet.png"><code class="language-plaintext highlighter-rouge">{{category}}</code></a>
+    {% endfor %}
     {% for tag in post.tags %}
-      <code class="language-plaintext highlighter-rouge">{{tag}}</code>
+      <a href="/assets/bullet.png"><code class="language-plaintext highlighter-rouge">{{tag}}</code></a>
     {% endfor %}
   </div>
 </div>
