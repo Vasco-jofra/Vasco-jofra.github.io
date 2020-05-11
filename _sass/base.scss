@@ -286,8 +286,34 @@ footer a:hover {
   color: $medium_emphasis_text_color;
 }
 
+// ====================
+// tag page
+// ====================
+.tag {
+    padding: 1px;
+    border-radius: 2px;
+
+    background: $code_bg;
+    border: $code_border;
+
+    color: $high_emphasis_text_color !important;
+    font-size: 0.875em;
+    font-family: monospace;
+}
+
+.tag:hover {
+  border: 1px solid $low_emphasis_text_color;
+  text-decoration: none;
+}
+
 .current-tag {
-  color: desaturate($color: $link_blue, $amount: 20) !important;
+    color: desaturate($color: $link_blue, $amount: 20) !important;
+}
+
+.tag-title {
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 0px;
 }
 
 // ====================

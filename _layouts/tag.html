@@ -8,13 +8,12 @@ layout: default
 <!-- The post that contain this tag -->
 {% assign posts_to_list = "" | split: "" %}
 
-{%for post in site.posts %}
+{% for post in site.posts %}
   {% if post.tags contains current_tag %}
     {% assign posts_to_list = posts_to_list | push: post %}
   {% endif %}
 {% endfor %}
 
-
-<h1>{{current_tag}}</h1>
+<h1 class="tag-title">#{{current_tag}}</h1>
 
 {% include post_list.html %}
