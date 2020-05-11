@@ -257,7 +257,7 @@ footer a:hover {
   padding: 20px;
   padding-bottom: 30px;
   border-radius: 6px;
-//   border: 1px solid rgba(255, 255, 255, 0.05);
+  //   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .home-post:hover {
@@ -284,6 +284,10 @@ footer a:hover {
 .post-author {
   font-size: 0.875em;
   color: $medium_emphasis_text_color;
+}
+
+.current-tag {
+  color: desaturate($color: $link_blue, $amount: 20) !important;
 }
 
 // ====================
