@@ -1,7 +1,6 @@
 ---
 title: "EasyToSay | Hitcon 2017"
-categories: ["pwn"]
-tags: ["shellcode"]
+tags: ["pwn", "shellcode"]
 points: 144
 solves: 139
 ---

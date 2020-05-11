@@ -1,7 +1,6 @@
 ---
 title: SPlaid Birch | Plaid CTF 2019
-categories: ["pwn"]
-tags: ["heap", "tcache"]
+tags: ["pwn", "heap", "tcache"]
 points: 300
 solves: 41
 authors: ["jofra", "pedro-bernardo"]

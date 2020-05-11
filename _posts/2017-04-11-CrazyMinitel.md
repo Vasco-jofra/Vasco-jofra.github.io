@@ -1,7 +1,6 @@
 ---
 title: "CrazyMinitel | InsHack 2017"
-categories: ["pwn"]
-tags: ["stack overflow", "shellcode"]
+tags: ["pwn", "stack overflow", "shellcode"]
 points: 125
 solves: 77
 ---
