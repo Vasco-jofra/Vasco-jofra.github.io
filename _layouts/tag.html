@@ -6,28 +6,15 @@ layout: default
 {% assign tag = page.url | split: '/' | last | url_decode %}
 
 <!-- The post that contain this tag -->
-{% assign tag_posts = "" | split: "" %}
+{% assign posts_to_list = "" | split: "" %}
 
 {%for post in site.posts %}
   {% if post.tags contains tag %}
-    {% assign tag_posts = tag_posts | push: post %}
+    {% assign posts_to_list = posts_to_list | push: post %}
   {% endif %}
 {% endfor %}
 
 
 <h1>{{tag}}</h1>
 
-<div class="home-posts">
-  {% for post in tag_posts %}
-    <a href="{{ post.url }}">
-      <div class="home-post">
-        {% include post_title.html %}
-        <!-- FIXME: Temporary fix because having tag links is messing up the home-post link -->
-        <a href="{{ post.url }}">
-          <p> {{ post.excerpt }} </p>
-        </a>
-      </div>
-    </a>
-    <br>
-  {% endfor %}
-</div>
+{% include post_list.html %}

@@ -2,23 +2,11 @@
 layout: default
 ---
 
-<div class="home-posts">
-  {% for post in paginator.posts %}
-    <a href="{{ post.url }}">
-      <div class="home-post">
-        {% include post_title.html %}
-        <!-- FIXME: Temporary fix because having tag links is messing up the home-post link -->
-        <a href="{{ post.url }}">
-          <p> {{ post.excerpt }} </p>
-        </a>
-      </div>
-    </a>
-    <br>
-  {% endfor %}
-</div>
+{% assign posts_to_list = paginator.posts %}
+{% include post_list.html %}
 
-<!-- Page list -->
-<!-- The  no_spaces is there so the compress.html file removes it and we don't get extra spaces we did not want (https://css-tricks.com/fighting-the-space-between-inline-block-elements/) -->
+<!-- Pagination -->
+<!-- The no_spaces is there so the compress.html file removes it and we don't get extra spaces we did not want (https://css-tricks.com/fighting-the-space-between-inline-block-elements/) -->
 {% assign next_sym = ">" | escape %}
 {% assign prev_sym = "<" | escape %}
 {% if paginator.total_pages > 1 %}

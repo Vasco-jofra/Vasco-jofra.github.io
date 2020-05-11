@@ -1,0 +1,14 @@
+<div class="home-posts">
+    {% for post in posts_to_list %}
+      <a href="{{ post.url }}">
+        <div class="home-post">
+          {% include post_title.html %}
+          <!-- FIXME: Temporary fix because having tag links is messing up the home-post link -->
+          <a href="{{ post.url }}">
+            <p> {{ post.excerpt }} </p>
+          </a>
+        </div>
+      </a>
+      <br>
+    {% endfor %}
+  </div>
