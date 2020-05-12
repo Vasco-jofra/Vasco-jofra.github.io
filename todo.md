@@ -4,12 +4,13 @@ title: TODO
 ---
 
 TODO:
- - fix home post link only working on title and part od the excerpt
  - check RSS: too much text
+ - author links
 
 DONE:
  - tags
  - pretify the archive
+ - fix home post link only working on title and part of the excerpt
 
 MAYBE:
  - next post at the end of a post?

@@ -255,9 +255,13 @@ footer a:hover {
 
 .home-post {
   padding: 20px;
-  padding-bottom: 30px;
+  padding-bottom: 0px; // The padding will come from the .home-post-excerpt.
   border-radius: 6px;
-  //   border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.home-post-excerpt {
+    padding-top: 0px;
+    padding-bottom: 45px;
 }
 
 .home-post:hover {
@@ -268,6 +272,11 @@ footer a:hover {
   margin-top: 0px;
   padding-top: 0px;
   font-size: 1.4em;
+}
+
+.post-title-and-tags {
+    display: flex;
+    justify-content: space-between;
 }
 
 .post-title {
@@ -285,6 +294,7 @@ footer a:hover {
   font-size: 0.875em;
   color: $medium_emphasis_text_color;
 }
+
 
 // ====================
 // tag page
@@ -312,8 +322,8 @@ footer a:hover {
 
 .tag-title {
     text-align: center;
-    margin-bottom: 50px;
-    margin-top: 0px;
+    margin-bottom: 35px;
+    margin-top: 10px;
 }
 
 // ====================

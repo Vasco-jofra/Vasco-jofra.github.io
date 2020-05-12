@@ -1,14 +1,28 @@
+<!-- variable "posts_to_list" should be assign when including this -->
+
 <div class="home-posts">
-    {% for post in posts_to_list %}
+  {% for post in posts_to_list %}
+    <div class="home-post">
+      <!-- title and tags -->
       <a href="{{ post.url }}">
-        <div class="home-post">
-          {% include post_title.html %}
-          <!-- FIXME: Temporary fix because having tag links is messing up the home-post link -->
-          <a href="{{ post.url }}">
-            <p> {{ post.excerpt }} </p>
-          </a>
+        <div class="post-title-and-tags">
+          <h1 class="post-title">{{ post.title }}</h1>
+          {% include post_tags.html %}
         </div>
       </a>
-      <br>
-    {% endfor %}
-  </div>
+
+      <!-- excerpt -->
+      <a href="{{ post.url }}">
+        <div>
+          {% include post_time_and_authors.html %}
+          <p class="home-post-excerpt">
+              {{ post.excerpt | strip_html }}
+          </p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Add an extra newline between posts -->
+    <br />
+  {% endfor %}
+</div>

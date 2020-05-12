@@ -1,0 +1,4 @@
+<time class="post-time" datetime="{{ post.date | date_to_xmlschema }}">
+    {{- post.date | date_to_string -}}
+</time>
+<span class="post-author"> | {{ post.authors | join: ', '}}</span>
