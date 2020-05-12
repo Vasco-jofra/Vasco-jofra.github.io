@@ -12,9 +12,9 @@
       </a>
 
       <!-- excerpt -->
+      {% include post_time_and_authors.html %}
       <a href="{{ post.url }}">
         <div>
-          {% include post_time_and_authors.html %}
           <p class="home-post-excerpt">
               {{ post.excerpt | strip_html }}
           </p>

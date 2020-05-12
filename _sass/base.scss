@@ -260,8 +260,8 @@ footer a:hover {
 }
 
 .home-post-excerpt {
-    padding-top: 0px;
-    padding-bottom: 45px;
+  padding-top: 0px;
+  padding-bottom: 45px;
 }
 
 .home-post:hover {
@@ -275,8 +275,8 @@ footer a:hover {
 }
 
 .post-title-and-tags {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .post-title {
@@ -292,23 +292,27 @@ footer a:hover {
 
 .post-author {
   font-size: 0.875em;
-  color: $medium_emphasis_text_color;
+  color: $medium_emphasis_text_color !important;
 }
 
+.post-author:hover {
+  color: $medium_high_emphasis_text_color !important;
+  text-decoration: underline !important;
+}
 
 // ====================
 // tag page
 // ====================
 .tag {
-    padding: 1px;
-    border-radius: 2px;
+  padding: 1px;
+  border-radius: 2px;
 
-    background: $code_bg;
-    border: $code_border;
+  background: $code_bg;
+  border: $code_border;
 
-    color: $high_emphasis_text_color !important;
-    font-size: 0.875em;
-    font-family: monospace;
+  color: $high_emphasis_text_color !important;
+  font-size: 0.875em;
+  font-family: monospace;
 }
 
 .tag:hover {
@@ -317,21 +321,21 @@ footer a:hover {
 }
 
 .current-tag {
-    color: desaturate($color: $link_blue, $amount: 20) !important;
+  color: desaturate($color: $link_blue, $amount: 20) !important;
 }
 
 .tag-title {
-    text-align: center;
-    margin-bottom: 35px;
-    margin-top: 10px;
+  text-align: center;
+  margin-bottom: 35px;
+  margin-top: 10px;
 }
 
 // ====================
 // archive page
 // ====================
 .archive-time {
-    font-family: monospace;
-    letter-spacing: -0.07em;
+  font-family: monospace;
+  letter-spacing: -0.07em;
 }
 
 // ====================
