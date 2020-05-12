@@ -22,8 +22,7 @@ title: Archive
       {% endunless %}
 
       <li>
-        <!-- style="font-family: monospace; letter-spacing: -0.03em" -->
-        <time> {{ post.date | date:"%d %b" }} | </time>
+        <time class="archive-time"> {{ post.date | date:"%d %b" }} | </time>
         <a href="{{ post.url }}"> {{ post.title }} </a>
       </li>
     {% endfor %}

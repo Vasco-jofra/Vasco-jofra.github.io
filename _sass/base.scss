@@ -317,6 +317,14 @@ footer a:hover {
 }
 
 // ====================
+// archive page
+// ====================
+.archive-time {
+    font-family: monospace;
+    letter-spacing: -0.07em;
+}
+
+// ====================
 // Main content
 // ====================
 .content-container {
@@ -387,7 +395,7 @@ a {
 // Avoid big margin between a paragraph and a list
 p {
   margin: 0em;
-  margin-top: 0.8em;
+  margin-top: 0.9em;
 }
 
 ul,

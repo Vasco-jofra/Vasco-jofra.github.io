@@ -4,10 +4,12 @@ title: TODO
 ---
 
 TODO:
- - tags
- - check RSS: too much text
- - pretify the archive
  - fix home post link only working on title and part od the excerpt
+ - check RSS: too much text
+
+DONE:
+ - tags
+ - pretify the archive
 
 MAYBE:
  - next post at the end of a post?
