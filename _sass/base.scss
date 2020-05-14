@@ -183,11 +183,13 @@ nav {
   //   -webkit-transition: background-color 0.1s ease-out, color 0.1s ease-out;
 
   border-radius: 2px;
+//   border: 1px solid $nav_background_color;
 }
 
 .nav-link:hover {
+    // border: 1px solid $low_emphasis_text_color;
   color: $nav_link_color;
-  background-color: $nav_link_hover;
+//   background-color: $link_hover_background;
 }
 
 // ====================
@@ -328,6 +330,14 @@ footer a:hover {
   text-align: center;
   margin-bottom: 35px;
   margin-top: 10px;
+}
+
+.tag-list {
+    width: 40%;
+}
+
+.tag-in-list {
+  margin: 3px;
 }
 
 // ====================

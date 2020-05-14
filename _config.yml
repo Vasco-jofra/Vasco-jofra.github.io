@@ -22,13 +22,31 @@ defaults:
         type: tags
     values:
         layout: "tag"
+  -
+    scope:
+        path: ""
+        type: projects
+    values:
+        layout: "post"
+        authors: ["jofra"]
+  -
+    scope:
+        path: ""
+        type: articles
+    values:
+        layout: "post"
+        authors: ["jofra"]
 
 collections:
   tags:
     output: true
+  articles:
+    output: true
+  projects:
+    output: true
 
 # "_posts" permalink
-permalink: /writeups/:title
+permalink: /ctf/:title
 
 # jekyll-paginate (https://jekyllrb.com/docs/pagination/)
 paginate: 50

@@ -1,0 +1,9 @@
+---
+layout: page
+---
+<div class="tag-list">
+  {% for tag in site.tags %}
+    {%- capture tag_name -%}{{ tag.url | split: '/' | last | url_decode }}{%- endcapture -%}
+    <a class="tag tag-in-list" href="/tags/{{tag_name}}">{{tag_name}}</a>
+  {% endfor %}
+</div>
