@@ -1,6 +1,8 @@
 ---
-layout: page
+layout: default
+title: Tags
 ---
+
 <div class="tag-list">
   {% for tag in site.tags %}
     {%- capture tag_name -%}{{ tag.url | split: '/' | last | url_decode }}{%- endcapture -%}

@@ -58,7 +58,7 @@ $background_color: $logo_background_color
   );
 
 // Links
-$link_color: #63c0f5;
+$link_color: $link_blue;
 $link_hover_background: rgba(0, 0, 0, 0.4);
 
 $header_color: $link_color;
@@ -70,9 +70,11 @@ $article_border: 1px solid rgba(255, 255, 255, 0.05);
 $code_bg: #1e1e1e; //  rgba(255, 255, 255, 0.05);
 $code_border: 1px solid rgba(255, 255, 255, 0.15);
 
-// @@TODO: To check
-$blockquote_color: #aaa;
-$blockquote_border_color: #666;
+// Tag
+$current_tag_color: desaturate(
+  $color: $link_blue,
+  $amount: 20,
+);
 
 // ====================
 // Common
@@ -183,13 +185,13 @@ nav {
   //   -webkit-transition: background-color 0.1s ease-out, color 0.1s ease-out;
 
   border-radius: 2px;
-//   border: 1px solid $nav_background_color;
+  //   border: 1px solid $nav_background_color;
 }
 
 .nav-link:hover {
-    // border: 1px solid $low_emphasis_text_color;
+  // border: 1px solid $low_emphasis_text_color;
   color: $nav_link_color;
-//   background-color: $link_hover_background;
+  // background-color: $link_hover_background;
 }
 
 // ====================
@@ -273,12 +275,20 @@ footer a:hover {
 .home-post h1 {
   margin-top: 0px;
   padding-top: 0px;
+  margin-right: 10px;
   font-size: 1.4em;
 }
 
 .post-title-and-tags {
   display: flex;
   justify-content: space-between;
+}
+
+// Make tags be on a new line if the screen is too small
+@media (max-width: 600px) {
+  .post-title-and-tags {
+      display: block;
+  }
 }
 
 .post-title {
@@ -323,7 +333,7 @@ footer a:hover {
 }
 
 .current-tag {
-  color: desaturate($color: $link_blue, $amount: 20) !important;
+  color: $current_tag_color !important;
 }
 
 .tag-title {
@@ -333,7 +343,7 @@ footer a:hover {
 }
 
 .tag-list {
-    width: 40%;
+  max-width: 350px;
 }
 
 .tag-in-list {
