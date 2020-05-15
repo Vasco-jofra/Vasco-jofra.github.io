@@ -194,6 +194,10 @@ nav {
   // background-color: $link_hover_background;
 }
 
+.nav-link-current {
+  color: $nav_link_color;
+}
+
 // ====================
 // Footer
 // ====================
@@ -287,7 +291,7 @@ footer a:hover {
 // Make tags be on a new line if the screen is too small
 @media (max-width: 600px) {
   .post-title-and-tags {
-      display: block;
+    display: block;
   }
 }
 

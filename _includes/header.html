@@ -6,10 +6,11 @@
   </div>
   <nav class="main-container">
     <!-- If we want to remove the spaces that appear because of the inline-block (https://css-tricks.com/fighting-the-space-between-inline-block-elements/) just place each element in a separate <remove-whitespace> and then the compress script will remove them -->
-    <a class="nav-link" href="/index">CTF</a>
-    <a class="nav-link" href="/articles">Articles</a>
-    <a class="nav-link" href="/tools">Tools</a>
-    <!-- <a class="nav-link" href="/tags">Tags</a> -->
-    <a class="nav-link" href="/about">About</a>
+
+    {% include header_link.html link_url='/index' link_name='CTF' %}
+    {% include header_link.html link_url='/articles' link_name='Articles' %}
+    {% include header_link.html link_url='/tools' link_name='Tools' %}
+    {% include header_link.html link_url='/about' link_name='About' %}
+
   </nav>
 </header>
