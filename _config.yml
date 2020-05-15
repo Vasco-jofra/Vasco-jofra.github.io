@@ -3,12 +3,18 @@ destination: ./_site
 
 baseurl: /
 title: jofra
-# description: "TODO: Blog description"
 
 author:
   name: "jofra"
 
+# default variables
 defaults:
+  -
+    scope:
+        path: ""
+        type: tags
+    values:
+        layout: "tag"
   -
     scope:
       path: ""
@@ -19,16 +25,11 @@ defaults:
   -
     scope:
         path: ""
-        type: tags
-    values:
-        layout: "tag"
-  -
-    scope:
-        path: ""
-        type: projects
+        type: tools
     values:
         layout: "post"
         authors: ["jofra"]
+        hidden_date: true
   -
     scope:
         path: ""
@@ -37,12 +38,13 @@ defaults:
         layout: "post"
         authors: ["jofra"]
 
+# All collections
 collections:
   tags:
     output: true
   articles:
     output: true
-  projects:
+  tools:
     output: true
 
 # "_posts" permalink
@@ -71,15 +73,16 @@ sass:
 future: false
 
 # jekyll-feed: generated feed.xml automatically (for RSS)
+feed:
+  excerpt_only: true
+  path: feed.xml
+
 # jekyll-sitemap: generates a sitemap.xml file for crawling purposes
 # jekyll-seo-tag: generates metadata for better indenting and display of content in link previews
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-paginate
 
 # Custom variables
 google_analytics : "UA-102896129-1"
-# owner : "SomeHacker"
-# year : "2020"

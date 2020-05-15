@@ -8,7 +8,7 @@ layout: default
 <!-- The post that contain this tag -->
 {% assign posts_to_list = "" | split: "" %}
 
-{% for post in site.posts %}
+{% for post in site.documents %}
   {% if post.tags contains current_tag %}
     {% assign posts_to_list = posts_to_list | push: post %}
   {% endif %}
