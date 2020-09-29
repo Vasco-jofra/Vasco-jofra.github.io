@@ -4,10 +4,10 @@ published: false
 
 TODO:
  - articles:
+   - kernel exploitation - figure out the ebfp stuff and do a writeup on it
+   - kernel exploitation - PTE stuff
    - fmt string plugin - paged out (and the csgo fmt string that was found)
    - my list of curiosities
- - tools:
-   - prop
 
 DONE:
  - tags
@@ -20,6 +20,7 @@ DONE:
  - highlight the currently selected header link
  - tools:
    - fmt string plugin
+   - prop
 
 MAYBE:
  - remove seo stuff?
