@@ -4,10 +4,9 @@ published: false
 
 TODO:
  - articles:
-   - fmt string plugin - paged out
+   - fmt string plugin - paged out (and the csgo fmt string that was found)
    - my list of curiosities
  - tools:
-   - fmt string plugin
    - prop
 
 DONE:
@@ -18,6 +17,9 @@ DONE:
  - wall of tags
  - fix tags on mobile
  - check RSS: too much text
+ - highlight the currently selected header link
+ - tools:
+   - fmt string plugin
 
 MAYBE:
  - remove seo stuff?
