@@ -9,10 +9,14 @@ TODO:
    - kernel exploitation - PTE stuff
    + fmt string plugin - paged out (and the csgo fmt string that was found)
    - my list of curiosities
-   - CodeQL query
  - make articles the main page?
 
 DONE:
+ - articles:
+   - CodeQL query finding kernel structures with function pointers
+ - tools:
+   - fmt string plugin
+   - prop
  - archive include articles as well
  - tags
  - pretify the archive (aka dates in monospace)
@@ -22,9 +26,6 @@ DONE:
  - fix tags on mobile
  - check RSS: too much text
  - highlight the currently selected header link
- - tools:
-   - fmt string plugin
-   - prop
 
 MAYBE:
  - remove seo stuff?

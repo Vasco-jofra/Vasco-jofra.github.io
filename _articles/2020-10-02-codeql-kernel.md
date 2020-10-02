@@ -21,7 +21,7 @@ In this article I won't go into detail about the exploitation of this bug, but r
 ## CodeQL
 I thought instead of searching for these structures by manually analyzing the kernel source or by reading other blog posts and seeing what is commonly used, it would be a great way to learn how to use CodeQL.
 
-[CodeQL](https://securitylab.github.com/tools/codeql) is a code analysis platform that allows you to query source code, based on a declarative query language called QL. It is usually used to model vulnerabilities, but here I will used to help with exploitation.
+[CodeQL](https://securitylab.github.com/tools/codeql) is a code analysis platform that allows you to query source code, based on a declarative query language called QL. It is commonly used to model vulnerabilities, but here I will use it to help with exploitation.
 
 For this challenge we are looking for two things:
  1. structures that are allocated using kmalloc
@@ -34,9 +34,9 @@ where s_kmalloc = s_fptrs
 select s_fptrs
 ```
 
-We get all the structures that are allocated by kmalloc, we get all the structures that contain function pointers and select the ones that satisfy both conditions (@@TODO: does this have a technical term? JOIN?). We just need to implement the classes `StructAllocatedByKmalloc`, and `StructWithFunctionPtr`.
+We get all the structures that are allocated by kmalloc, we get all the structures that contain function pointers and select the ones that satisfy both conditions. We just need to implement the classes `StructAllocatedByKmalloc`, and `StructWithFunctionPtr`.
 
-### Just some helpful utils
+### Some useful utils
 Just some utils that will be helpful later, you can skip it for now and come back later when needed.
 
 Removes a level of indirection. E.g. `char*`->`char` or `char**`->`char*`
@@ -86,7 +86,7 @@ dig_port = kzalloc(sizeof(*dig_port), GFP_KERNEL);
 ```
 `kfc` is the `kzalloc` function call and the fully converted type is `struct intel_digital_port *`. After the `max_deref` call we get `struct intel_digital_port`, and this is our `StructAllocatedByKmalloc`.
 
-Running `from StructAllocatedByKmalloc a select a` we get 1334 different structures allocated by kmalloc.
+Running the query `from StructAllocatedByKmalloc a select a` we get 1334 different structures allocated by kmalloc.
 
 ### 2. Structures that contain function pointers
 Here we need to look for structures that:
@@ -175,14 +175,14 @@ This way we get more results (538) since we are also printing all the call site 
 | 10  | 24              | rapl_pmus          | call to kzalloc | 1             |
 | ... | ...             | ...                | ...             | ...           |
 
-I'll leave it to the you to choose the one you want. There at least 2 that work well, but probably many other work as well. ;)
+I'll leave it to the you to choose the one you want. There at least 2 that work, but probably many other work as well. ;)
 
 
 ## Improving it further
-If we wanted to improve it further we could see if there is a path (and its call stack depth) from a syscall (our interface with the kernel) to a call to one of these function pointers.
+If we wanted to improve it further we could see if there is a path (and its call stack depth) from a syscall (our interface with the kernel) to a call to one of these function pointers. This way we could be sure the function pointer is called in a specific syscall and we can sort by call stack depth to look for the best ones.
 
 ## Conclusion
-CodeQL is pretty cool and can be used to find bugs by modelling vulnerability classes but also to help in some exploitation scenarios. Here we looked for structures with function pointers, but we could have also looked for structures of a certain size if that was a restriction and probably many other things I can think of right now.
+CodeQL is pretty cool and can be used to find bugs by modelling vulnerability classes but also to help in some exploitation scenarios. Here we looked for structures with function pointers, but we could have also looked for structures of a certain size if that was a restriction and probably many other things I can't think of right now.
 
 ## Full code
 ```ql
