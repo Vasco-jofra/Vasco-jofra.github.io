@@ -175,7 +175,7 @@ This way we get more results (538) since we are also printing all the call site 
 | 10  | 24              | rapl_pmus          | call to kzalloc | 1             |
 | ... | ...             | ...                | ...             | ...           |
 
-I'll leave it to the you to choose the one you want. There at least 2 that work, but probably many other work as well. ;)
+I'll leave it to you to choose the one you want. There at least 2 that work, but probably many other work as well. ;)
 
 
 ## Improving it further
