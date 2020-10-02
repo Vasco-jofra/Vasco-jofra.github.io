@@ -1,15 +1,19 @@
 ---
 published: false
 ---
+RUN: bundle exec jekyll serve
 
 TODO:
  - articles:
    - kernel exploitation - figure out the ebfp stuff and do a writeup on it
    - kernel exploitation - PTE stuff
-   - fmt string plugin - paged out (and the csgo fmt string that was found)
+   + fmt string plugin - paged out (and the csgo fmt string that was found)
    - my list of curiosities
+   - CodeQL query
+ - make articles the main page?
 
 DONE:
+ - archive include articles as well
  - tags
  - pretify the archive (aka dates in monospace)
  - fix home post link only working on title and part of the excerpt
