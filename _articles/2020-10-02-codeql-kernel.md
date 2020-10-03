@@ -64,7 +64,7 @@ class KmallocFunction extends Function {
 If we run `from KmallocFunction kf select kf` we get: `krealloc`, `kvcalloc`, `kvmalloc`, `kvzalloc`, `kzalloc`, `kcalloc`, `kmalloc`, `krealloc`. That looks good.
 
 
-Now we get all places where this functions are called:
+Now we get all places where these functions are called:
 ```ql
 class KmallocFunctionCall extends FunctionCall {
   KmallocFunctionCall() { this.getTarget() instanceof KmallocFunction }
