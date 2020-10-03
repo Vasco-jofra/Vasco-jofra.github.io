@@ -54,7 +54,7 @@ Type max_deref(Type t) {
 ```
 
 ### 1. Structures that are allocated using kmalloc
-To start with we don't just want kmalloc, but all the family of function.
+To start with we don't just want kmalloc, but all the family of functions.
 ```ql
 class KmallocFunction extends Function {
   KmallocFunction() { this.getName().regexpMatch("k[^_]*alloc") }
