@@ -28,7 +28,7 @@ For this challenge we are looking for two things:
  2. structures that contain function pointers
 
 We are aiming for a final query that will look something like this:
-```ql
+```sql
 from StructAllocatedByKmalloc s_kmalloc, StructWithFunctionPtr s_fptrs
 where s_kmalloc = s_fptrs
 select s_fptrs
@@ -40,12 +40,12 @@ We get all the structures that are allocated by kmalloc, we get all the structur
 Just some utils that will be helpful later, you can skip it for now and come back later when needed.
 
 Removes a level of indirection. E.g. `char*`->`char` or `char**`->`char*`
-```ql
+```php
 Type deref(Type t) { result = t.(DerivedType).getBaseType() }
 ```
 
 Removes all indirection levels. E.g. `char*`->`char` or `char*****`->`char`
-```ql
+```php
 Type max_deref(Type t) {
   t.getPointerIndirectionLevel() = 0 and result = t
   or
@@ -55,7 +55,7 @@ Type max_deref(Type t) {
 
 ### 1. Structures that are allocated using kmalloc
 To start with we don't just want kmalloc, but all the family of functions.
-```ql
+```php
 class KmallocFunction extends Function {
   KmallocFunction() { this.getName().regexpMatch("k[^_]*alloc") }
 }
@@ -65,21 +65,21 @@ If we run `from KmallocFunction kf select kf` we get: `krealloc`, `kvcalloc`, `k
 
 
 Now we get all places where these functions are called:
-```ql
+```php
 class KmallocFunctionCall extends FunctionCall {
   KmallocFunctionCall() { this.getTarget() instanceof KmallocFunction }
 }
 ```
 
 And finally we look for all the structures that are allocated with it.
-```
+```php
 class StructAllocatedByKmalloc extends Struct {
   KmallocFunctionCall kfc;
 
   StructAllocatedByKmalloc() { this = max_deref(kfc.getFullyConverted().getType()) }
 }
 ```
-This one is a bit harder to understand if you are not used to the QL syntax. Here we are saying that there is a `KmallocFunctionCall kfc` such that the function call resulting type, after implicit and explicit cast (`kfc.getFullyConverted().getType()`), and after removing the indirection levels (`max_deref`), is `this` structure. It's probably easier to understand with an example. Lets say you had this cpp code:
+This one is a bit harder to understand if you are not used to the QL syntax. Here we are saying that there is a `KmallocFunctionCall kfc` such that the function call resulting type, after implicit and explicit cast (`kfc.getFullyConverted().getType()`), and after removing the indirection levels (`max_deref`), is `this` structure. It's probably easier to understand with an example. Let's say you had this cpp code:
 ```cpp
 struct intel_digital_port *dig_port;
 dig_port = kzalloc(sizeof(*dig_port), GFP_KERNEL);
@@ -109,7 +109,7 @@ struct B {
 ```
 
 This is the query I wrote to find it:
-```ql
+```php
 class StructWithFunctionPtr extends Struct {
   StructWithFunctionPtr() {
     exists(FunctionPointerType fptype | this.getAField().getType() = fptype) or
@@ -124,7 +124,7 @@ Running `from StructWithFunctionPtr a select a` yields 1769 different results.
 ### Putting it all together
 Finally, with these classes implemented, we can run our initial simple query.
 
-```ql
+```sql
 from StructAllocatedByKmalloc s_kmalloc, StructWithFunctionPtr s_fptrs
 where s_kmalloc = s_fptrs
 select s_fptrs
@@ -144,10 +144,10 @@ select s_fptrs
 | 10  | attribute_group  |
 | ... | ...              |
 
-We get 417 results.. nice! To help narrow down our search lets make our query slightly more complex and print the amount of fptrs the struct has (more pointer to overwrite can only be a good thing) and the places where the allocation is made (so we can look through the source and choose one).
+We get 417 results.. nice! To help narrow down our search let's make our query slightly more complex and print the amount of fptrs the struct has (more pointer to overwrite can only be a good thing) and the places where the allocation is made (so we can look through the source and choose one).
 
-NOTE: Some of this code (e.g. `countFieldsOfFunctionPtrs`) was not mention above but can be seen in the end of post.
-```ql
+NOTE: Some of this code (e.g. `countFieldsOfFunctionPtrs`) was not mentioned above but can be seen in the end of post.
+```sql
 from StructAllocatedByKmalloc s_kmalloc,
      StructWithFunctionPtr s_fptrs
 where s_kmalloc = s_fptrs
@@ -185,13 +185,14 @@ If we wanted to improve it further we could see if there is a path (and its call
 CodeQL is pretty cool and can be used to find bugs by modelling vulnerability classes but also to help in some exploitation scenarios. Here we looked for structures with function pointers, but we could have also looked for structures of a certain size if that was a restriction and probably many other things I can't think of right now.
 
 ## Full code
-```ql
+<!-- ActionScript, C (C99), C++, C#, D, F#, Go, Java, JavaScript, Kotlin, Object Pascal (Delphi), Objective-C, PHP, Rust, Scala, SASS, Swift, Xojo -->
+```php
 import cpp
 
 // Removes a level of indirection. E.g. `char*`->`char` or `char**`->`char*`
 Type deref(Type t) { result = t.(DerivedType).getBaseType() }
 
-//Removes all indirection levels. E.g. `char*`->`char` or `char*****`->`char`
+// Removes all indirection levels. E.g. `char*`->`char` or `char*****`->`char`
 Type max_deref(Type t) {
   t.getPointerIndirectionLevel() = 0 and result = t
   or
@@ -237,6 +238,8 @@ class StructWithFunctionPtr extends Struct {
 
 // ====================
 // Final query
+```
+```sql
 from StructAllocatedByKmalloc s_kmalloc,
      StructWithFunctionPtr s_fptrs
 where s_kmalloc = s_fptrs
