@@ -96,7 +96,7 @@ Here we need to look for structures that:
 Example 1:
 ```cpp
 struct A {
-	void (*operation) (int);
+    void (*operation) (int);
 };
 ```
 
