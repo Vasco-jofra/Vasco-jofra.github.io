@@ -108,7 +108,7 @@ struct B {
 };
 ```
 
-This is the query I wrote to find it:
+This is the class I wrote to find it:
 ```php
 class StructWithFunctionPtr extends Struct {
   StructWithFunctionPtr() {
