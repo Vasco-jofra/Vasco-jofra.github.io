@@ -1,9 +1,9 @@
 ---
-title: "Using CodeQL to help with linux kernel exploitation"
+title: "Using CodeQL to help exploit a linux kernel UAF"
 tags: ["CodeQL", "UAF"]
 ---
 
-In this article I will describe how I used CodeQL to look for kernel structures that are kmalloc'ed and contain function pointers to help exploiting a use-after-free in the linux kernel.
+In this article I will describe how I used CodeQL to look for kernel structures that are kmalloc'ed and contain function pointers to help exploit a use-after-free in the linux kernel.
 
 ## The problem
 When solving a linux kernel exploitation challenge, I had the need to look for kernel structures that had function pointers (that I could overwrite to get code execution).
@@ -249,3 +249,5 @@ select
   count(s_kmalloc.getAFunctionCall()) as kmalloc_times
 order by amount_of_fptrs desc
 ```
+
+<script src="https://gist.github.com/Vasco-jofra/45e0a547562b8180565cb240fcbd36fb.js"></script>
