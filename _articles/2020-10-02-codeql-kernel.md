@@ -185,7 +185,6 @@ If we wanted to improve it further we could see if there is a path (and its call
 CodeQL is pretty cool and can be used to find bugs by modelling vulnerability classes but also to help in some exploitation scenarios. Here we looked for structures with function pointers, but we could have also looked for structures of a certain size if that was a restriction and probably many other things I can't think of right now.
 
 ## Full code
-<!-- ActionScript, C (C99), C++, C#, D, F#, Go, Java, JavaScript, Kotlin, Object Pascal (Delphi), Objective-C, PHP, Rust, Scala, SASS, Swift, Xojo -->
 ```php
 import cpp
 
