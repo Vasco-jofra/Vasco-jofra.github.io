@@ -1,7 +1,9 @@
 // original: https://github.com/pages-themes/hacker
 // barely recognizable though
 
+@import "__colors";
 @import "code_highlight";
+@import "github_embed_dark_mode";
 
 // ====================
 // Fonts
@@ -22,6 +24,9 @@ $high_emphasis_text_color: rgba(255, 255, 255, 0.87);
 $medium_high_emphasis_text_color: rgba(255, 255, 255, 0.75);
 $medium_emphasis_text_color: rgba(255, 255, 255, 0.55);
 $low_emphasis_text_color: rgba(255, 255, 255, 0.38);
+
+// Inline code
+$inline_code_color: rgba(151, 104, 104, 0.87); // previously it was $high_emphasis_text_color
 
 // Logo
 $logo_background_color: #0c0c0c;
@@ -65,10 +70,6 @@ $header_color: $link_color;
 $separator_color: $low_emphasis_text_color;
 
 $article_border: 1px solid rgba(255, 255, 255, 0.05);
-
-// Code
-$code_bg: #1e1e1e; //  rgba(255, 255, 255, 0.05);
-$code_border: 1px solid rgba(255, 255, 255, 0.15);
 
 // Tag
 $current_tag_color: desaturate(
@@ -471,7 +472,8 @@ code.highlighter-rouge {
   background: $code_bg;
   border: $code_border;
 
-  color: $high_emphasis_text_color;
+//   color: $high_emphasis_text_color;
+  color: $inline_code_color;
   font-size: 0.875em;
 }
 
