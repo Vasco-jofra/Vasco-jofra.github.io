@@ -26,7 +26,8 @@ $medium_emphasis_text_color: rgba(255, 255, 255, 0.55);
 $low_emphasis_text_color: rgba(255, 255, 255, 0.38);
 
 // Inline code
-$inline_code_color: rgba(151, 104, 104, 0.87); // previously it was $high_emphasis_text_color
+$inline_code_color: $high_emphasis_text_color;
+// $inline_code_color: rgba(151, 104, 104, 0.87);
 
 // Logo
 $logo_background_color: #0c0c0c;
