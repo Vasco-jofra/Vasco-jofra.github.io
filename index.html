@@ -1,46 +1,7 @@
 ---
 layout: default
+title: Articles
 ---
 
-{% assign posts_to_list = paginator.posts %}
+{% assign posts_to_list = site.articles | sort: "date" | reverse %}
 {% include post_list.html %}
-
-<!-- Pagination -->
-<!-- The no_spaces is there so the compress.html file removes it and we don't get extra spaces we did not want (https://css-tricks.com/fighting-the-space-between-inline-block-elements/) -->
-{% assign next_sym = ">" | escape %}
-{% assign prev_sym = "<" | escape %}
-{% if paginator.total_pages > 1 %}
-  <div class="pagination">
-    <!-- prev -->
-    <no_spaces>
-      {% if paginator.previous_page %}
-        <a class="pagination-element" href="{{ paginator.previous_page_path | relative_url }}">{{ prev_sym }}</a>
-      {% else %}
-        <span class="pagination-element">{{ prev_sym }}</span>
-      {% endif %}
-    </no_spaces>
-
-    <!-- page numbers -->
-    {% for page in (1..paginator.total_pages) %}
-      <no_spaces>
-        {% if page == paginator.page %}
-          <span class="pagination-element">{{ page }}</span>
-        {% elsif page == 1 %}
-          <!-- 'page/1' is not generated.. The example on the documentation is wrong!  -->
-          <a class="pagination-element" href="/">{{ page }}</a>
-        {% else %}
-          <a class="pagination-element" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
-        {% endif %}
-      </no_spaces>
-    {% endfor %}
-
-    <!-- next -->
-    <no_spaces>
-      {% if paginator.next_page %}
-        <a class="pagination-element" href="{{ paginator.next_page_path | relative_url }}">{{ next_sym }}</a>
-      {% else %}
-        <span class="pagination-element">{{ next_sym }}</span>
-      {% endif %}
-    </no_spaces>
-  </div>
-{% endif %}

@@ -16,7 +16,7 @@
       <a href="{{ post.url }}">
         <div>
           <p class="home-post-excerpt">
-            <!-- TODO: Here we would like to remove <a href...> because otherwise our previous href to the post.url link if overwritten -->
+            <!-- TODO: Here we would like to remove <a href...> because otherwise our previous href to the post.url link is overwritten -->
             {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
           </p>
         </div>

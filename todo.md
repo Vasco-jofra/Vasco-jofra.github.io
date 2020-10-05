@@ -9,7 +9,6 @@ TODO:
    - kernel exploitation - PTE stuff
    + fmt string plugin - paged out (and the csgo fmt string that was found)
    - my list of curiosities
- - make articles the main page?
 
 DONE:
  - articles:
@@ -17,6 +16,7 @@ DONE:
  - tools:
    - fmt string plugin
    - prop
+ - make articles the main page?
  - archive include articles as well
  - tags
  - pretify the archive (aka dates in monospace)
