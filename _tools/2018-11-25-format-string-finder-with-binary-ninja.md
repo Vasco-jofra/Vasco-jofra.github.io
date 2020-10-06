@@ -3,7 +3,7 @@ tags: ["tool", "binary ninja", "fmt string"]
 ---
 
 *Format string finder* uses **binary ninja**'s powerful IL's to find **format string vulnerabilities** in binaries (without access to source code) and ***printf-like functions***.
-It was featured in [*Paged Out!'s*](https://pagedout.institute/) first issue winning **Best Security/RE article** leading to it being presented in São Paulo, Brasil at [*Hackers to Hackers Conference 2019*](https://www.h2hc.com.br/h2hc/en/).
+It was featured in [*Paged Out!'s*](https://pagedout.institute/) issue #1 winning **Best Security/RE article** leading to it being presented in São Paulo, Brasil at [*Hackers to Hackers Conference 2019*](https://www.h2hc.com.br/h2hc/en/).
 
 You can find it here: [https://github.com/Vasco-jofra/format-string-finder-binja](https://github.com/Vasco-jofra/format-string-finder-binja) or install it from Binary Ninja's plugin manager.
 
