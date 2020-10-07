@@ -144,7 +144,7 @@ select s_fptrs
 | 10  | attribute_group  |
 | ... | ...              |
 
-We get 417 results.. nice! To help narrow down our search let's make our query slightly more complex and print the amount of fptrs the struct has (more pointer to overwrite can only be a good thing) and the places where the allocation is made (so we can look through the source and choose one).
+We get 417 results.. nice! To help narrow down our search let's make our query slightly more complex and print the amount of fptrs the struct has (more pointers to overwrite can only be a good thing) and the places where the allocation is made (so we can look through the source and choose one).
 
 NOTE: Some of this code (e.g. `countFieldsOfFunctionPtrs`) was not mentioned above but can be seen in the end of post.
 ```sql

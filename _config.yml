@@ -77,15 +77,16 @@ sass:
 # Should publish post with dates in the future
 future: false
 
-# jekyll-feed: generated feed.xml automatically (for RSS)
+# jekyll-feed: generated feed.xml for RSS (but not really)
+# We are not using the plugin, the file feed.xml is changed slightly from the original
+# Reasons: More collections in a single feed, aka articles and posts in there and not just posts
 feed:
   excerpt_only: true
-  path: feed.xml
+  posts_limit: 100
 
 # jekyll-sitemap: generates a sitemap.xml file for crawling purposes
 # jekyll-seo-tag: generates metadata for better indenting and display of content in link previews
 plugins:
-  - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
 
