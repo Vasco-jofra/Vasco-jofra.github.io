@@ -1,0 +1,7 @@
+---
+layout: default
+title: Mini articles
+---
+
+{% assign posts_to_list = site.mini_articles | sort: "date" | reverse %}
+{% include post_list.html %}

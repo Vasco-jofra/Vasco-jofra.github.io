@@ -19,17 +19,19 @@ defaults:
 
   -
     scope:
-      path: ""
-      type: "posts"
+        path: ""
+        type: "posts"
     values:
-      layout: "post"
-      authors: ["jofra"]
-      archivable: true
+        layout: "post"
+        permalink: /ctf/:title
+        authors: ["jofra"]
+        archivable: true
   -
     scope:
         path: ""
         type: tools
     values:
+        permalink: /tools/:title
         layout: "post"
         authors: ["jofra"]
         hidden_date: true
@@ -39,21 +41,31 @@ defaults:
         path: ""
         type: articles
     values:
+        permalink: /articles/:title
         layout: "post"
         authors: ["jofra"]
         archivable: true
+  -
+    scope:
+        path: ""
+        type: mini_articles
+    values:
+        permalink: /mini_articles/:title
+        layout: "mini_article"
+        authors: ["jofra"]
+        archivable: true
+
 
 # All collections
 collections:
   tags:
     output: true
-  articles:
-    output: true
   tools:
     output: true
-
-# "_posts" permalink
-permalink: /ctf/:title
+  articles:
+    output: true
+  mini_articles:
+    output: true
 
 # jekyll-paginate (https://jekyllrb.com/docs/pagination/)
 paginate: 50

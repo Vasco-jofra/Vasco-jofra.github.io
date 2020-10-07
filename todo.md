@@ -1,6 +1,7 @@
 ---
 published: false
 ---
+
 RUN: bundle exec jekyll serve
 
 TODO:
@@ -16,6 +17,8 @@ DONE:
  - tools:
    - fmt string plugin
    - prop
+ - site links are now more consistent
+ - rss with all archivable documents
  - make articles the main page?
  - archive include articles as well
  - tags
