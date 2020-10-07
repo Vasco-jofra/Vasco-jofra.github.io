@@ -51,7 +51,7 @@ defaults:
         type: mini_articles
     values:
         permalink: /mini_articles/:title
-        layout: "mini_article"
+        layout: "post"
         authors: ["jofra"]
         archivable: true
 

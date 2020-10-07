@@ -245,6 +245,9 @@ footer a:hover {
 .pagination-element {
   border-radius: 4px;
   padding: 8px;
+
+  color: $link_blue;
+  border: $article_border;
 }
 
 .pagination a:hover {

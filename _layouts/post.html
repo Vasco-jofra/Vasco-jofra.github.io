@@ -16,3 +16,16 @@ layout: default
   <!-- Content -->
   {{ content }}
 </article>
+
+<br>
+
+{% assign next_sym = ">" | escape %}
+{% assign prev_sym = "<" | escape %}
+<div class="pagination">
+  {% if page.previous.url %}
+    <a class="pagination-element" href="{{page.previous.url | relative_url}}"> {{ prev_sym }} {{page.previous.title}}</a>
+  {% endif %}
+  {% if page.next.url %}
+    <a class="pagination-element" href="{{page.next.url}}">{{page.next.title}} {{ next_sym }}</a>
+  {% endif %}
+</div>

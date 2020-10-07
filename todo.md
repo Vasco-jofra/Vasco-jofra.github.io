@@ -17,6 +17,7 @@ DONE:
  - tools:
    - fmt string plugin
    - prop
+ - next post at the end of a post
  - site links are now more consistent
  - rss with all archivable documents
  - make articles the main page?
@@ -32,7 +33,6 @@ DONE:
 
 MAYBE:
  - remove seo stuff?
- - next post at the end of a post?
  - comments?
  - check firefox different behavior on link active
  - make the logo have better resolution. It's too pixelated
