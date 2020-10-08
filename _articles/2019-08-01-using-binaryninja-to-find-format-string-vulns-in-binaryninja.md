@@ -1,6 +1,6 @@
 ---
 title: "Using Binary Ninja to find format string vulns in Binary Ninja"
-tags: ["binary ninja", "format string"]
+tags: ["binary_ninja", "format_string"]
 ---
 
 In this article I describe a plugin I developed to find format string vulnerabilities using binary ninja.

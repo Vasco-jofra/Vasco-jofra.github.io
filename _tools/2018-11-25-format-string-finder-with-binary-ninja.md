@@ -1,5 +1,5 @@
 ---
-tags: ["tool", "binary ninja", "fmt string"]
+tags: ["tool", "binary_ninja", "format_string"]
 ---
 
 *Format string finder* uses **binary ninja**'s powerful IL's to find **format string vulnerabilities** in binaries (without access to source code) and ***printf-like functions***.
