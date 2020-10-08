@@ -9,7 +9,7 @@ TODO:
    - kernel exploitation - figure out the ebfp stuff and do a writeup on it
    - kernel exploitation - PTE stuff
    + fmt string plugin - paged out (and the csgo fmt string that was found)
-   - my list of curiosities
+   + my list of curiosities
 
 DONE:
  - articles:
