@@ -1,7 +1,5 @@
-<!-- variable "posts_to_list" should be assign when including this -->
-
 <div class="home-posts">
-  {% for post in posts_to_list %}
+  {% for post in include.posts_to_list %}
     <div class="home-post">
       <!-- title and tags -->
       <a href="{{ post.url }}">

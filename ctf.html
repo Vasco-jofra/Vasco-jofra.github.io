@@ -2,8 +2,7 @@
 layout: default
 ---
 
-{% assign posts_to_list = site.posts %}
-{% include post_list.html %}
+{% include post_list.html posts_to_list=site.posts %}
 
 {%- comment -%}
 <!-- Pagination -->
