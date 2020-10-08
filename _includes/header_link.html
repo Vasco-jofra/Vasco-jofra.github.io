@@ -1,5 +1,6 @@
+{%- assign page_url = page.url | remove: ".html" -%}
 {%- assign link_current_class = "" -%}
-{%- if page.url == include.link_url or (include.link_url == "/index" and page.url == "/") -%}
+{%- if page_url == include.link_url or ((include.link_url == "/index" or include.link_url == "/articles") and page_url == "/") -%}
   {%- assign link_current_class = "nav-link-current" -%}
 {%- endif -%}
 

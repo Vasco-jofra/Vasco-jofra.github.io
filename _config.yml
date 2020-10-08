@@ -56,7 +56,6 @@ defaults:
         authors: ["jofra"]
         archivable: true
 
-
 # All collections
 collections:
   tags:

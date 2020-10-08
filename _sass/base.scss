@@ -266,6 +266,12 @@ footer a:hover {
   text-decoration: none;
 }
 
+.home-posts-title {
+    text-align: center;
+    margin-bottom: 35px;
+    margin-top: 10px;
+}
+
 .home-post {
   padding: 20px;
   padding-bottom: 0px; // The padding will come from the .home-post-excerpt.
@@ -343,12 +349,6 @@ footer a:hover {
 
 .current-tag {
   color: $current_tag_color !important;
-}
-
-.tag-title {
-  text-align: center;
-  margin-bottom: 35px;
-  margin-top: 10px;
 }
 
 .tag-list {

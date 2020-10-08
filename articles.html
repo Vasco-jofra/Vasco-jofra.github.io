@@ -4,4 +4,4 @@ title: Articles
 ---
 
 {% assign posts_to_list = site.articles | sort: "date" | reverse %}
-{% include post_list.html posts_to_list=posts_to_list %}
+{% include post_list.html title="Articles" posts_to_list=posts_to_list %}

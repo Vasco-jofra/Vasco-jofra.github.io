@@ -14,6 +14,5 @@ layout: default
   {% endif %}
 {% endfor %}
 
-<h1 class="tag-title">#{{current_tag}}</h1>
-
-{% include post_list.html posts_to_list=posts_to_list %}
+{% assign title="#" | append: current_tag %}
+{% include post_list.html title=title posts_to_list=posts_to_list %}
