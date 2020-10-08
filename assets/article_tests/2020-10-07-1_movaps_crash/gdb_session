@@ -1,0 +1,10 @@
+# end of main
+# b *0x555555554000+0x762
+
+# Here is where we have the first difference 0x4f396
+# b *0x7ffff79e4000+0x4f396
+
+# clone syscall
+b *0x7ffff7a330ca
+
+set follow-fork-mode child

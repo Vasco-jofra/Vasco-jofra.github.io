@@ -1,0 +1,209 @@
+[*] '/home/jofra/Documents/github/security-tools/1_ctfs/61_midnight_ctf/rev_pwn/vm/test/test'
+    Arch:     amd64-64-little
+    RELRO:    Full RELRO
+    Stack:    No canary found
+    NX:       NX enabled
+    PIE:      PIE enabled
+[x] Starting local process '/usr/bin/strace'
+[+] Starting local process '/usr/bin/strace': pid 17697
+      elf.address @ 0x555555554000
+elf.plt['system'] @ 0x5555555545ac
+[*] Switching to interactive mode
+execve("./test", ["./test"], 0x7fffffffdaa8 /* 73 vars */) = 0
+brk(NULL)                               = 0x555555756000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=153038, ...}) = 0
+mmap(NULL, 153038, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7fd1000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\260\34\2\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=2030544, ...}) = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fcf000
+mmap(NULL, 4131552, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff79e4000
+mprotect(0x7ffff7bcb000, 2097152, PROT_NONE) = 0
+mmap(0x7ffff7dcb000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1e7000) = 0x7ffff7dcb000
+mmap(0x7ffff7dd1000, 15072, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7dd1000
+close(3)                                = 0
+arch_prctl(ARCH_SET_FS, 0x7ffff7fd04c0) = 0
+mprotect(0x7ffff7dcb000, 16384, PROT_READ) = 0
+mprotect(0x555555754000, 4096, PROT_READ) = 0
+mprotect(0x7ffff7ffc000, 4096, PROT_READ) = 0
+munmap(0x7ffff7fd1000, 153038)          = 0
+fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 3), ...}) = 0
+brk(NULL)                               = 0x555555756000
+brk(0x555555777000)                     = 0x555555777000
+write(1, "'main' leak @ 0x55555555470d\n", 29'main' leak @ 0x55555555470d
+) = 29
+fstat(0, {st_mode=S_IFIFO|0600, st_size=0, ...}) = 0
+read(0, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"..., 4096) = 305
+rt_sigaction(SIGINT, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7ffff7a22fd0}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGQUIT, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7ffff7a22fd0}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+clone(child_stack=NULL, flags=CLONE_PARENT_SETTID|SIGCHLD, parent_tidptr=0x7fffffffd86c) = 17700
+wait4(17700, strace: Process 17700 attached
+ <unfinished ...>
+[pid 17700] rt_sigaction(SIGINT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7ffff7a22fd0}, NULL, 8) = 0
+[pid 17700] rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7ffff7a22fd0}, NULL, 8) = 0
+[pid 17700] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 17700] execve("/bin/sh", ["sh", "-c", "/bin/ls"], 0x7fffffffdab8 /* 73 vars */) = 0
+[pid 17700] brk(NULL)                   = 0x555555774000
+[pid 17700] access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+[pid 17700] access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+[pid 17700] openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+[pid 17700] fstat(3, {st_mode=S_IFREG|0644, st_size=153038, ...}) = 0
+[pid 17700] mmap(NULL, 153038, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7fd1000
+[pid 17700] close(3)                    = 0
+[pid 17700] access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+[pid 17700] openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+[pid 17700] read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\260\34\2\0\0\0\0\0"..., 832) = 832
+[pid 17700] fstat(3, {st_mode=S_IFREG|0755, st_size=2030544, ...}) = 0
+[pid 17700] mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fcf000
+[pid 17700] mmap(NULL, 4131552, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff79e4000
+[pid 17700] mprotect(0x7ffff7bcb000, 2097152, PROT_NONE) = 0
+[pid 17700] mmap(0x7ffff7dcb000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1e7000) = 0x7ffff7dcb000
+[pid 17700] mmap(0x7ffff7dd1000, 15072, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7dd1000
+[pid 17700] close(3)                    = 0
+[pid 17700] arch_prctl(ARCH_SET_FS, 0x7ffff7fd0540) = 0
+[pid 17700] mprotect(0x7ffff7dcb000, 16384, PROT_READ) = 0
+[pid 17700] mprotect(0x55555576f000, 8192, PROT_READ) = 0
+[pid 17700] mprotect(0x7ffff7ffc000, 4096, PROT_READ) = 0
+[pid 17700] munmap(0x7ffff7fd1000, 153038) = 0
+[pid 17700] getuid()                    = 1000
+[pid 17700] getgid()                    = 1000
+[pid 17700] getpid()                    = 17700
+[pid 17700] rt_sigaction(SIGCHLD, {sa_handler=0x555555566200, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7ffff7a22fd0}, NULL, 8) = 0
+[pid 17700] geteuid()                   = 1000
+[pid 17700] brk(NULL)                   = 0x555555774000
+[pid 17700] brk(0x555555795000)         = 0x555555795000
+[pid 17700] getppid()                   = 17699
+[pid 17700] stat("/home/jofra/Documents/github/security-tools/1_ctfs/61_midnight_ctf/rev_pwn/vm/test", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+[pid 17700] stat(".", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+[pid 17700] geteuid()                   = 1000
+[pid 17700] getegid()                   = 1000
+[pid 17700] rt_sigaction(SIGINT, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 17700] rt_sigaction(SIGINT, {sa_handler=0x555555566200, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7ffff7a22fd0}, NULL, 8) = 0
+[pid 17700] rt_sigaction(SIGQUIT, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 17700] rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7ffff7a22fd0}, NULL, 8) = 0
+[pid 17700] rt_sigaction(SIGTERM, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 17700] rt_sigaction(SIGTERM, {sa_handler=SIG_DFL, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7ffff7a22fd0}, NULL, 8) = 0
+[pid 17700] clone(strace: Process 17702 attached
+child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7ffff7fd0810) = 17702
+[pid 17700] wait4(-1,  <unfinished ...>
+[pid 17702] execve("/bin/ls", ["/bin/ls"], 0x555555775228 /* 73 vars */) = 0
+[pid 17702] brk(NULL)                   = 0x555555776000
+[pid 17702] access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+[pid 17702] access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+[pid 17702] openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+[pid 17702] fstat(3, {st_mode=S_IFREG|0644, st_size=153038, ...}) = 0
+[pid 17702] mmap(NULL, 153038, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7fd1000
+[pid 17702] close(3)                    = 0
+[pid 17702] access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+[pid 17702] openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libselinux.so.1", O_RDONLY|O_CLOEXEC) = 3
+[pid 17702] read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\20b\0\0\0\0\0\0"..., 832) = 832
+[pid 17702] fstat(3, {st_mode=S_IFREG|0644, st_size=154832, ...}) = 0
+[pid 17702] mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fcf000
+[pid 17702] mmap(NULL, 2259152, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff7bad000
+[pid 17702] mprotect(0x7ffff7bd2000, 2093056, PROT_NONE) = 0
+[pid 17702] mmap(0x7ffff7dd1000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x24000) = 0x7ffff7dd1000
+[pid 17702] mmap(0x7ffff7dd3000, 6352, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7dd3000
+[pid 17702] close(3)                    = 0
+[pid 17702] access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+[pid 17702] openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+[pid 17702] read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\260\34\2\0\0\0\0\0"..., 832) = 832
+[pid 17702] fstat(3, {st_mode=S_IFREG|0755, st_size=2030544, ...}) = 0
+[pid 17702] mmap(NULL, 4131552, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff77bc000
+[pid 17702] mprotect(0x7ffff79a3000, 2097152, PROT_NONE) = 0
+[pid 17702] mmap(0x7ffff7ba3000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1e7000) = 0x7ffff7ba3000
+[pid 17702] mmap(0x7ffff7ba9000, 15072, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ba9000
+[pid 17702] close(3)                    = 0
+[pid 17702] access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+[pid 17702] openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libpcre.so.3", O_RDONLY|O_CLOEXEC) = 3
+[pid 17702] read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0 \25\0\0\0\0\0\0"..., 832) = 832
+[pid 17702] fstat(3, {st_mode=S_IFREG|0644, st_size=464824, ...}) = 0
+[pid 17702] mmap(NULL, 2560264, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff754a000
+[pid 17702] mprotect(0x7ffff75ba000, 2097152, PROT_NONE) = 0
+[pid 17702] mmap(0x7ffff77ba000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x70000) = 0x7ffff77ba000
+[pid 17702] close(3)                    = 0
+[pid 17702] access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+[pid 17702] openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libdl.so.2", O_RDONLY|O_CLOEXEC) = 3
+[pid 17702] read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\16\0\0\0\0\0\0"..., 832) = 832
+[pid 17702] fstat(3, {st_mode=S_IFREG|0644, st_size=14560, ...}) = 0
+[pid 17702] mmap(NULL, 2109712, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff7346000
+[pid 17702] mprotect(0x7ffff7349000, 2093056, PROT_NONE) = 0
+[pid 17702] mmap(0x7ffff7548000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x7ffff7548000
+[pid 17702] close(3)                    = 0
+[pid 17702] access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+[pid 17702] openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
+[pid 17702] read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0000b\0\0\0\0\0\0"..., 832) = 832
+[pid 17702] fstat(3, {st_mode=S_IFREG|0755, st_size=144976, ...}) = 0
+[pid 17702] mmap(NULL, 2221184, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff7127000
+[pid 17702] mprotect(0x7ffff7141000, 2093056, PROT_NONE) = 0
+[pid 17702] mmap(0x7ffff7340000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x19000) = 0x7ffff7340000
+[pid 17702] mmap(0x7ffff7342000, 13440, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7342000
+[pid 17702] close(3)                    = 0
+[pid 17702] mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fcd000
+[pid 17702] arch_prctl(ARCH_SET_FS, 0x7ffff7fce040) = 0
+[pid 17702] mprotect(0x7ffff7ba3000, 16384, PROT_READ) = 0
+[pid 17702] mprotect(0x7ffff7340000, 4096, PROT_READ) = 0
+[pid 17702] mprotect(0x7ffff7548000, 4096, PROT_READ) = 0
+[pid 17702] mprotect(0x7ffff77ba000, 4096, PROT_READ) = 0
+[pid 17702] mprotect(0x7ffff7dd1000, 4096, PROT_READ) = 0
+[pid 17702] mprotect(0x555555772000, 8192, PROT_READ) = 0
+[pid 17702] mprotect(0x7ffff7ffc000, 4096, PROT_READ) = 0
+[pid 17702] munmap(0x7ffff7fd1000, 153038) = 0
+[pid 17702] set_tid_address(0x7ffff7fce310) = 17702
+[pid 17702] set_robust_list(0x7ffff7fce320, 24) = 0
+[pid 17702] rt_sigaction(SIGRTMIN, {sa_handler=0x7ffff712ccb0, sa_mask=[], sa_flags=SA_RESTORER|SA_SIGINFO, sa_restorer=0x7ffff71398a0}, NULL, 8) = 0
+[pid 17702] rt_sigaction(SIGRT_1, {sa_handler=0x7ffff712cd50, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART|SA_SIGINFO, sa_restorer=0x7ffff71398a0}, NULL, 8) = 0
+[pid 17702] rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+[pid 17702] prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+[pid 17702] statfs("/sys/fs/selinux", 0x7fffffffd940) = -1 ENOENT (No such file or directory)
+[pid 17702] statfs("/selinux", 0x7fffffffd940) = -1 ENOENT (No such file or directory)
+[pid 17702] brk(NULL)                   = 0x555555776000
+[pid 17702] brk(0x555555797000)         = 0x555555797000
+[pid 17702] openat(AT_FDCWD, "/proc/filesystems", O_RDONLY|O_CLOEXEC) = 3
+[pid 17702] fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+[pid 17702] read(3, "nodev\tsysfs\nnodev\trootfs\nnodev\tr"..., 1024) = 426
+[pid 17702] read(3, "", 1024)           = 0
+[pid 17702] close(3)                    = 0
+[pid 17702] access("/etc/selinux/config", F_OK) = -1 ENOENT (No such file or directory)
+[pid 17702] openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = 3
+[pid 17702] fstat(3, {st_mode=S_IFREG|0644, st_size=3008640, ...}) = 0
+[pid 17702] mmap(NULL, 3008640, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff6e48000
+[pid 17702] close(3)                    = 0
+[pid 17702] ioctl(1, TCGETS, {B38400 -opost -isig -icanon -echo ...}) = 0
+[pid 17702] ioctl(1, TIOCGWINSZ, {ws_row=0, ws_col=0, ws_xpixel=0, ws_ypixel=0}) = 0
+[pid 17702] openat(AT_FDCWD, ".", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 3
+[pid 17702] fstat(3, {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+[pid 17702] getdents(3, /* 15 entries */, 32768) = 496
+[pid 17702] getdents(3, /* 0 entries */, 32768) = 0
+[pid 17702] close(3)                    = 0
+[pid 17702] fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 3), ...}) = 0
+[pid 17702] write(1, "core\t     Makefile\t\t       strac"..., 62core	     Makefile		       strace_success.out  trace_fail.out
+) = 62
+[pid 17702] write(1, "gdb_session  strace_fail.out\t   "..., 55gdb_session  strace_fail.out	       test		   trace.out
+) = 55
+[pid 17702] write(1, "go.py\t     strace_folow_success."..., 66go.py	     strace_folow_success.out  test.c		   trace_success.out
+) = 66
+[pid 17702] close(1)                    = 0
+[pid 17702] close(2)                    = 0
+[pid 17702] exit_group(0)               = ?
+[pid 17702] +++ exited with 0 +++
+[pid 17700] <... wait4 resumed> [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 17702
+[pid 17700] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=17702, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+[pid 17700] rt_sigreturn({mask=[]})     = 17702
+[pid 17700] exit_group(0)               = ?
+[pid 17700] +++ exited with 0 +++
+<... wait4 resumed> [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 17700
+rt_sigaction(SIGINT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7ffff7a22fd0}, NULL, 8) = 0
+rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7ffff7a22fd0}, NULL, 8) = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=17700, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+--- SIGSEGV {si_signo=SIGSEGV, si_code=SEGV_MAPERR, si_addr=0xdeadbeef} ---
++++ killed by SIGSEGV (core dumped) +++
+[*] Got EOF while reading in interactive
+[*] Process '/usr/bin/strace' stopped with exit code -11 (SIGSEGV) (pid 17697)
+[*] Got EOF while sending in interactive
