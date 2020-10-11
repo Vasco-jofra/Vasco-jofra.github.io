@@ -3,7 +3,7 @@ title: "#2 C infinite args"
 tags: ["mini", "programming", "C"]
 ---
 
-In C functions that receive no arguments can receive an arbitrary amount of arguments :o.
+In C, functions that receive no arguments can receive an arbitrary amount of arguments. :O
 
 ```c
 #include <stdio.h>
