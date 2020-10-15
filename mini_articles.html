@@ -4,4 +4,5 @@ title: Mini articles
 ---
 
 {% assign posts_to_list = site.mini_articles | sort: "date" | reverse %}
-{% include post_list.html  title="Mini Articles" posts_to_list=posts_to_list %}
+{% assign description = "Here you'll find a collection of things I found interesting over the years but don't qualify as real articles. From one-liners to curiosities where I dive a bit deeper. They are meant to be 'mini' but sometimes a go too deep =P." %}
+{% include post_list.html title="Mini Articles" description=description posts_to_list=posts_to_list %}

@@ -1,6 +1,11 @@
 {% if include.title %}
-  <h1 class="home-posts-title">{{include.title}}</h1>
+  <h1 class="home-posts-title">{{ include.title }}</h1>
+  {% if include.description %}
+    <p class="home-posts-description">{{ include.description }}</p>
+  {% endif %}
 {% endif %}
+
+<hr>
 
 <div class="home-posts">
   {% for post in include.posts_to_list %}
