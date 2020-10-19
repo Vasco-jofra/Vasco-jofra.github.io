@@ -1,6 +1,6 @@
 ---
 title: "Using CodeQL to help exploit a linux kernel UAF"
-tags: ["CodeQL", "UAF"]
+tags: ["CodeQL", "kernel", "UAF"]
 ---
 
 In this article I will describe how I used CodeQL to look for kernel structures that are kmalloc'ed and contain function pointers to help exploit a use-after-free in the linux kernel.
