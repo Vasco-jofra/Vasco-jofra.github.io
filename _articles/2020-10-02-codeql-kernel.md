@@ -9,10 +9,10 @@ In this article I will describe how I used CodeQL to look for kernel structures 
 When solving a linux kernel exploitation challenge, I had the need to look for kernel structures that had function pointers (that I could overwrite to get code execution).
 
 The challenge is quite simple and supports these 4 operations:
- 1. **allocate** a chunk with `kmalloc` of a given size passed by the user
- 2. **free** the chunk
- 3. **read** the chunk (`copy_to_user`)
- 4. **write** the chunk (`copy_from_user`)
+ - **allocate** a chunk with `kmalloc` of a given size passed by the user
+ - **free** the chunk
+ - **read** the chunk (`copy_to_user`)
+ - **write** the chunk (`copy_from_user`)
 
 The bug is on the `free` function that does not set the freed pointer to NULL, and so we can write on the chunk after it was freed.
 

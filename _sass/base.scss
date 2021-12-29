@@ -8,10 +8,9 @@
 // ====================
 // Fonts
 // ====================
-$font_headers: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal,
-  monospace;
-// $font_main_text: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font_main_text: Roboto, sans-serif;
+$font_headers: monospace;
+$font_main_text: 'Open Sans', sans-serif;
+// $font_main_text: 'Roboto', sans-serif;
 
 // ====================
 // Colors
@@ -412,7 +411,7 @@ h1 {
 }
 
 h2 {
-  margin-top: 2em;
+  margin-top: 1.0em;
   font-size: 1.6em;
 }
 
@@ -499,7 +498,7 @@ code.highlighter-rouge {
 // Bold option 2
 strong {
   font-weight: bold;
-  color: $high_emphasis_text_color;
+//   color: $high_emphasis_text_color;
 }
 
 // Bold option 3
