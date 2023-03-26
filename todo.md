@@ -4,32 +4,17 @@ published: false
 
 RUN: bundle exec jekyll serve
 
+NOTES: 
+ - Use `<p class="figure-caption">XXX</p>` to add figure or text snippet captions
+
 TODO:
+ - center images
+ - fix font stuff which still looks ugly I think
  - articles:
    - kernel exploitation - figure out the ebfp stuff and do a writeup on it
    - kernel exploitation - PTE stuff
    + fmt string plugin - paged out (and the csgo fmt string that was found)
    + my list of curiosities
-
-DONE:
- - articles:
-   - CodeQL query finding kernel structures with function pointers
- - tools:
-   - fmt string plugin
-   - prop
- - next post at the end of a post
- - site links are now more consistent
- - rss with all archivable documents
- - make articles the main page?
- - archive include articles as well
- - tags
- - pretify the archive (aka dates in monospace)
- - fix home post link only working on title and part of the excerpt
- - author links
- - wall of tags
- - fix tags on mobile
- - check RSS: too much text
- - highlight the currently selected header link
 
 MAYBE:
  - remove seo stuff?
