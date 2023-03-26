@@ -6,7 +6,7 @@ solves: 41
 authors: ["jofra", "pedro-bernardo"]
 ---
 
-In this writeup we will show how we reversed an implementation of _Splay Trees_, found an out of bound read, and used to cause a double free and exploit the libc tcache to achieve code execution.
+In this writeup we will show how we reversed an implementation of _Splay Trees_, found an out of bound read, and used it to cause a double free and exploit the libc tcache to achieve code execution.
 
 
 ## Overview
