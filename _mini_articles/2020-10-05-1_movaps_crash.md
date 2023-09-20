@@ -1,5 +1,5 @@
 ---
-title: "#1 movaps crash"
+title: "Debugging a movaps crash"
 tags: ["mini", "ROP"]
 ---
 

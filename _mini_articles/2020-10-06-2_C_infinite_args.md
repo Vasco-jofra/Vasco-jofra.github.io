@@ -1,5 +1,5 @@
 ---
-title: "#2 C infinite args"
+title: "C: infinite args"
 tags: ["mini", "programming", "C"]
 ---
 
