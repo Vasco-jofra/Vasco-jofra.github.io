@@ -103,4 +103,4 @@ plugins:
   - jekyll-seo-tag
 
 # Custom variables
-google_analytics : "UA-102896129-1"
+# google_analytics : "UA-102896129-1"

@@ -29,7 +29,6 @@ TODO:
    - kernel exploitation - PTE stuff
 
 MAYBE:
- - remove seo stuff?
  - comments?
  - check firefox different behavior on link active
  - make the logo have better resolution. It's too pixelated
