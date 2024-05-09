@@ -18,9 +18,11 @@ title: Archive
     <h4>{{ year }}</h4>
     <ul>
   {% endif %}
-  <li>
-    <time class="archive-time"> {{ post.date | date:"%d %b" }} | </time>
-    <a href="{{ post.url }}"> {{ post.title }} </a>
-  </li>
+  {% if post.draft != true %}
+    <li>
+        <time class="archive-time"> {{ post.date | date:"%d %b" }} | </time>
+        <a href="{{ post.url }}"> {{ post.title }} </a>
+    </li>
+  {% endif %}
 {% endfor %}
 </ul>
