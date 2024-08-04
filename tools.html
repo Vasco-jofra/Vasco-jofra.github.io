@@ -3,4 +3,5 @@ layout: default
 title: Tools
 ---
 
-{% include post_list.html title="Tools" posts_to_list=site.tools %}
+{% assign posts_to_list = site.tools | sort: "date" | reverse %}
+{% include post_list.html title="Tools" posts_to_list=posts_to_list %}
