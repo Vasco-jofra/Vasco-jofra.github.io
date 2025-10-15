@@ -85,7 +85,7 @@ At their core, these parsers provide two primary functions:
 - `Marshal` (serialize): Converts Go structs into their respective format strings
 - `Unmarshal` (deserialize): Converts format strings back into Go structs
 
-![Parsing JSON in Go](/img/go-parser-footguns/json_parsing.png)
+![Parsing JSON in Go](/assets/img/2025-07-17-go-parser-footguns/json_parsing.png)
 
 Go uses struct field tags to allow customization of how parsers should handle individual fields. These tags consist of:
 
@@ -115,7 +115,7 @@ fmt.Printf("Result: %#v\n", u)
 
 These parsers also offer stream-based alternatives that operate on `io.Reader` interfaces rather than `byte` slices. This API is ideal for parsing streaming data such as HTTP request bodies, making it a preferred choice in HTTP request handling.
 
-![Parsing JSON in Go with NewDecoder](/img/go-parser-footguns/json_parsing_2.png)
+![Parsing JSON in Go with NewDecoder](/assets/img/2025-07-17-go-parser-footguns/json_parsing_2.png)
 
 ---
 
@@ -127,11 +127,11 @@ Let's consider a simple example in which a back-end server has an HTTP handler f
 
 When creating a user, you may not want the user to be able to set the `IsAdmin` field (i.e., unmarshal that field from the user input).
 
-![Shows an interaction with a backend server in which the user can set the IsAdmin field of the User struct, which should not be possible](/img/go-parser-footguns/create_user.png)
+![Shows an interaction with a backend server in which the user can set the IsAdmin field of the User struct, which should not be possible](/assets/img/2025-07-17-go-parser-footguns/create_user.png)
 
 Similarly, when fetching the user, you may not want the user to return the user's `Password` or other secret values.
 
-![Shows an interaction with a backend server in which the user can get the Password field of the User struct, which should not be possible](/img/go-parser-footguns/get_user.png)
+![Shows an interaction with a backend server in which the user can get the Password field of the User struct, which should not be possible](/assets/img/2025-07-17-go-parser-footguns/get_user.png)
 
 How can we instruct the parsers not to marshal or unmarshal a field?
 
@@ -219,7 +219,7 @@ While this behavior is error prone with minimal benefits (having the ability to 
 
 The XML and YAML parsers operate similarly, with one key difference: the XML parser treats the `<->` tag as invalid. To resolve this, we must prefix the `-` symbol with an XML namespace, such as `<A:->`.
 
-![Image showing how to unmarshal a field with a tag of "-,..." in JSON, XML, and YAML](/img/go-parser-footguns/tag_with_dash.png)
+![Image showing how to unmarshal a field with a tag of "-,..." in JSON, XML, and YAML](/assets/img/2025-07-17-go-parser-footguns/tag_with_dash.png)
 
 Ok, ok, let's do it right this time.
 
@@ -235,7 +235,7 @@ Finally! Now, there is no way for the `IsAdmin` field to be unmarshaled.
 
 But I hear you ask: How can these misconfigurations lead to security vulnerabilities? The most common way is, like in our example, using `-,...` as the JSON tag for a field such as `IsAdmin`--a field the user should not control. This is a hard bug to detect with unit tests because unless you have an explicit test that unmarshals an input with the `-` key and detects if any field was written to, you won't detect it. You need your IDE or an external tool to detect it.
 
-![Shows an interaction with a backend server in which the user can set the IsAdmin field with the - JSON field name](/img/go-parser-footguns/create_user_2.png)
+![Shows an interaction with a backend server in which the user can set the IsAdmin field with the - JSON field name](/assets/img/2025-07-17-go-parser-footguns/create_user_2.png)
 
 We created a [public Semgrep rule](https://semgrep.dev/playground/r/trailofbits.go.unmarshal_tag_is_dash.unmarshal-tag-is-dash?editorMode=advanced) to help you find similar issues in your codebases. Try it with `semgrep -c r/trailofbits.go.unmarshal_tag_is_dash.unmarshal-tag-is-dash`!
 
@@ -277,15 +277,15 @@ As an example, let's use the following application using a microservice architec
 
 In this first flow, a regular, non-admin user attempts to perform a `UserAction`, an action they are **allowed** to perform.
 
-![Image showing the system described above with a flow in which the user successfully authenticates](/img/go-parser-footguns/parser_diff_success.png)
+![Image showing the system described above with a flow in which the user successfully authenticates](/assets/img/2025-07-17-go-parser-footguns/parser_diff_success.png)
 
 In this second flow, the same regular user attempts to perform an `AdminAction`, an action they are **forbidden** to perform.
 
-![Image showing the system described above with a flow in which the user fails to authenticate](/img/go-parser-footguns/parser_diff_fail.png)
+![Image showing the system described above with a flow in which the user fails to authenticate](/assets/img/2025-07-17-go-parser-footguns/parser_diff_fail.png)
 
 Finally, the following flow is because the services disagree on the action the user is trying to perform.
 
-![Image showing the system described above with a vulnerable flow in which Proxy and Authorization services disagree when parsing an action from the user input.](/img/go-parser-footguns/parser_diff_attack.png)
+![Image showing the system described above with a vulnerable flow in which Proxy and Authorization services disagree when parsing an action from the user input.](/assets/img/2025-07-17-go-parser-footguns/parser_diff_attack.png)
 
 The Authorization Service, written in a different programming language or using a non-default Go parser, will parse `UserAction` and grant the user permission to perform the operation, while the Proxy Service, using Go's default parser, will parse `AdminAction` and proxy it to the incorrect service. The remaining question is: Which payloads can we use to achieve this behavior?
 
@@ -322,11 +322,11 @@ None of these are the most common JSON parsers in their corresponding languages,
 
 So, if our Proxy Service uses the Go JSON parser and the Authorization Service uses one of these parsers, we get our discrepancy, as shown in the figure below.
 
-![Image showing the attack scenario with the exploit described above](/img/go-parser-footguns/parser_diff_duplicate_fields.png)
+![Image showing the attack scenario with the exploit described above](/assets/img/2025-07-17-go-parser-footguns/parser_diff_duplicate_fields.png)
 
 The XML parser has the same behavior, while the YAML parser returns an error on duplicate fields—the secure default we think all of these parsers should implement.
 
-![Image summarizing the behavior for all three parsers](/img/go-parser-footguns/parser_diff_duplicate_fields_summary.png)
+![Image summarizing the behavior for all three parsers](/assets/img/2025-07-17-go-parser-footguns/parser_diff_duplicate_fields_summary.png)
 
 While not ideal, at least this behavior is consistent with the most commonly used JSON and XML parsers. Let's now take a look at a much worse behavior that will almost always get you a discrepancy between Go's default parser and any other parser.
 
@@ -376,7 +376,7 @@ fmt.Printf("Result: %#v\n", a)
 
 Applying it to our running attack scenario, this is how the attack would look like:
 
-![Image showing the attack scenario with the exploit described above](/img/go-parser-footguns/parser_diff_case_insensitivity_1.png)
+![Image showing the attack scenario with the exploit described above](/assets/img/2025-07-17-go-parser-footguns/parser_diff_case_insensitivity_1.png)
 
 In our opinion, this is the most critical pitfall of Go's JSON parser because it differs from the default parsers for JavaScript, Python, Rust, Ruby, Java, and all other parsers we tested. This has led to many high-impact security vulnerabilities, including ones we've found during our audits.
 
@@ -384,7 +384,7 @@ As a final blow, there's no way to disable this behavior, even though people hav
 
 This only affects the JSON parser. The XML and YAML parsers use exact matches.
 
-![Image summarizing the behavior for all three parsers](/img/go-parser-footguns/parser_diff_case_insensitivity_summary.png)
+![Image summarizing the behavior for all three parsers](/assets/img/2025-07-17-go-parser-footguns/parser_diff_case_insensitivity_summary.png)
 
 If you are interested in other kinds of JSON parsing differentials between many parsers, we recommend these two blog posts:
 
@@ -407,11 +407,11 @@ As an example, let's use [CVE-2020-16250](https://nvd.nist.gov/vuln/detail/cve-2
 6. The Vault Server parses the XML, extracts the identity, and, if that AWS role should have access to the requested secrets, it returns them.
 7. The AWS resource can now use the secret to, for example, authenticate against a database.
 
-![Image showing the Vault authentication flow](/img/go-parser-footguns/data_format_confusion_1.png)
+![Image showing the Vault authentication flow](/assets/img/2025-07-17-go-parser-footguns/data_format_confusion_1.png)
 
 What Google's Project Zero team found was that an attacker could control too much in step 2, including controlling all headers of the request that Vault builds in step 3. In particular, by setting the `Accept` header to `application/json`, AWS STS would now return a JSON document in step 5 instead of the expected XML document. As a result, the Vault Server would parse a JSON document with Go's XML parser. Because the XML parser is very lenient and parses anything that looks like XML in between lots of other "garbage" data, this was sufficient for a full authentication bypass when combined with partial control of the JSON response.
 
-![Image showing the Vault authentication flow with the exploit described above](/img/go-parser-footguns/data_format_confusion_2.png)
+![Image showing the Vault authentication flow with the exploit described above](/assets/img/2025-07-17-go-parser-footguns/data_format_confusion_2.png)
 
 Let's look at three different behaviors that make parsing files with the wrong Go parser possible and build a polyglot that can be parsed with Go's JSON, XML, and YAML parsers and return a different result for each.
 
@@ -419,23 +419,23 @@ Let's look at three different behaviors that make parsing files with the wrong G
 
 By default, the JSON, XML, and YAML parsers don't prevent unknown fields—properties in the incoming data that don't match any fields in the target struct.
 
-![Summary of the behavior of the JSON, XML, and YAML parsers for unknown keys](/img/go-parser-footguns/unknown_keys_1.png)
+![Summary of the behavior of the JSON, XML, and YAML parsers for unknown keys](/assets/img/2025-07-17-go-parser-footguns/unknown_keys_1.png)
 
 ### Leading garbage data
 
 Of the three parsers, only the XML parser accepts leading garbage data.
 
-![Summary of the behavior of the JSON, XML, and YAML parsers for leading garbage data](/img/go-parser-footguns/leading_garbage_data_1.png)
+![Summary of the behavior of the JSON, XML, and YAML parsers for leading garbage data](/assets/img/2025-07-17-go-parser-footguns/leading_garbage_data_1.png)
 
 ### Trailing garbage data
 
 Again, only the XML parser accepts arbitrary trailing garbage data.
 
-![Summary of the behavior of the JSON, XML, and YAML parsers for trailing garbage data](/img/go-parser-footguns/trailing_garbage_data_1.png)
+![Summary of the behavior of the JSON, XML, and YAML parsers for trailing garbage data](/assets/img/2025-07-17-go-parser-footguns/trailing_garbage_data_1.png)
 
 The exception is using the parsers' Decoder API with streaming data, in which case the JSON parser accepts garbage trailing data. This an [open issue](https://github.com/golang/go/issues/36225) for which a fix is not planned.
 
-![Summary of the behavior of the JSON, XML, and YAML parsers for trailing garbage data with the Decoder API](/img/go-parser-footguns/trailing_garbage_data_2.png)
+![Summary of the behavior of the JSON, XML, and YAML parsers for trailing garbage data with the Decoder API](/assets/img/2025-07-17-go-parser-footguns/trailing_garbage_data_2.png)
 
 ### Constructing a polyglot
 
@@ -450,7 +450,7 @@ A very useful piece of information is that JSON is a subset of YAML:
 
 With this in mind, we can build the following polyglot:
 
-![Image showing the polyglot above and which parsers parse which value as explained below](/img/go-parser-footguns/polyglot.png)
+![Image showing the polyglot above and which parsers parse which value as explained below](/assets/img/2025-07-17-go-parser-footguns/polyglot.png)
 
 The JSON parser can parse the polyglot because the input is valid JSON, it ignores unknown keys, and it allows duplicate keys. It takes the `Action_2` value because its field matching is case-insensitive and it takes the value of the last match.
 
