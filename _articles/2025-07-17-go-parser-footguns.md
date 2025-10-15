@@ -53,7 +53,7 @@ Below is a summary of the surprising behaviors we'll examine, with indicators sh
 
 <div class="summaryTable">
 
-| -                   | JSON               | JSON v2          | XML              | YAML             |
+|                       | JSON               | JSON v2          | XML              | YAML             |
 | --------------------- | ------------------ | ---------------- | ---------------- | ---------------- |
 | json:"-,..."          | YES (bad design)   | YES (bad design) | YES (bad design) | YES (bad design) |
 | json:"omitempty"      | YES (expected)     | YES (expected)   | YES (expected)   | YES (expected)   |
