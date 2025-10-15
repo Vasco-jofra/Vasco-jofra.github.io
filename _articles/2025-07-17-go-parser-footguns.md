@@ -17,52 +17,64 @@ Below is a summary of the surprising behaviors we'll examine, with indicators sh
 - 🟠 **Orange**: Insecure by default but configurable
 - 🔴 **Red**: Insecure by default with no secure configuration options
 
-<!-- This colors the table below. `tr` corresponds to the rows and `td` to the columns -->
-<style>
-    .summaryTable tr:nth-child(1) td:nth-child(2) { background: rgba(255, 0, 0, 0.8); }
-    .summaryTable tr:nth-child(1) td:nth-child(3) { background: rgba(255, 0, 0, 0.8); }
-    .summaryTable tr:nth-child(1) td:nth-child(4) { background: rgba(255, 0, 0, 0.8); }
-    .summaryTable tr:nth-child(1) td:nth-child(5) { background: rgba(255, 0, 0, 0.8); }
-    .summaryTable tr:nth-child(3) td:nth-child(2) { background: rgba(255, 0, 0, 0.8); }
-    .summaryTable tr:nth-child(3) td:nth-child(4) { background: rgba(255, 0, 0, 0.8); }
-    .summaryTable tr:nth-child(4) td:nth-child(2) { background: rgba(255, 0, 0, 0.8); }
-    .summaryTable tr:nth-child(5) td:nth-child(4) { background: rgba(255, 0, 0, 0.8); }
-    .summaryTable tr:nth-child(6) td:nth-child(4) { background: rgba(255, 0, 0, 0.8); }
-    .summaryTable tr:nth-child(7) td:nth-child(2) { background: rgba(255, 0, 0, 0.8); }
-    .summaryTable tr:nth-child(7) td:nth-child(4) { background: rgba(255, 0, 0, 0.8); }
+<table class="summaryTable" border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; text-align: center;">
+  <tr>
+    <th></th>
+    <th>JSON</th>
+    <th>JSON v2</th>
+    <th>XML</th>
+    <th>YAML</th>
+  </tr>
+  <tr>
+    <td>json:"-,..."</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES (bad design)</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES (bad design)</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES (bad design)</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES (bad design)</td>
+  </tr>
+  <tr>
+    <td>json:"omitempty"</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">YES (expected)</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">YES (expected)</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">YES (expected)</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">YES (expected)</td>
+  </tr>
+  <tr>
+    <td>Duplicate keys</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES (last)</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES (last)</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+  </tr>
+  <tr>
+    <td>Case insensitivity</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+  </tr>
+  <tr>
+    <td>Unknown keys</td>
+    <td style="background: rgba(255, 165, 0, 0.8);">YES (mitigable)</td>
+    <td style="background: rgba(255, 165, 0, 0.8)">YES (mitigable)</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES</td>
+    <td style="background: rgba(255, 165, 0, 0.8)">YES (mitigable)</td>
+  </tr>
+  <tr>
+    <td>Garbage leading data</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+  </tr>
+  <tr>
+    <td>Garbage trailing data</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES (with Decoder)</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+  </tr>
+</table>
 
-    .summaryTable tr:nth-child(2) td:nth-child(2) { background: rgba(0, 127, 0, 0.8); }
-    .summaryTable tr:nth-child(2) td:nth-child(3) { background: rgba(0, 127, 0, 0.8); }
-    .summaryTable tr:nth-child(2) td:nth-child(4) { background: rgba(0, 127, 0, 0.8); }
-    .summaryTable tr:nth-child(2) td:nth-child(5) { background: rgba(0, 127, 0, 0.8); }
-    .summaryTable tr:nth-child(3) td:nth-child(3) { background: rgba(0, 127, 0, 0.8); }
-    .summaryTable tr:nth-child(3) td:nth-child(5) { background: rgba(0, 127, 0, 0.8); }
-    .summaryTable tr:nth-child(4) td:nth-child(3) { background: rgba(0, 127, 0, 0.8); }
-    .summaryTable tr:nth-child(4) td:nth-child(4) { background: rgba(0, 127, 0, 0.8); }
-    .summaryTable tr:nth-child(4) td:nth-child(5) { background: rgba(0, 127, 0, 0.8); }
-    .summaryTable tr:nth-child(6) td:nth-child(2) { background: rgba(0, 127, 0, 0.8); }
-    .summaryTable tr:nth-child(6) td:nth-child(3) { background: rgba(0, 127, 0, 0.8); }
-    .summaryTable tr:nth-child(6) td:nth-child(5) { background: rgba(0, 127, 0, 0.8); }
-    .summaryTable tr:nth-child(7) td:nth-child(3) { background: rgba(0, 127, 0, 0.8); }
-    .summaryTable tr:nth-child(7) td:nth-child(5) { background: rgba(0, 127, 0, 0.8); }
-
-    .summaryTable tr:nth-child(5) td:nth-child(2) { background: rgba(255, 165, 0, 0.8); }
-    .summaryTable tr:nth-child(5) td:nth-child(3) { background: rgba(255, 165, 0, 0.8); }
-    .summaryTable tr:nth-child(5) td:nth-child(5) { background: rgba(255, 165, 0, 0.8); }
-</style>
-
-<div class="summaryTable">
-
-|                       | JSON               | JSON v2          | XML              | YAML             |
-| --------------------- | ------------------ | ---------------- | ---------------- | ---------------- |
-| json:"-,..."          | YES (bad design)   | YES (bad design) | YES (bad design) | YES (bad design) |
-| json:"omitempty"      | YES (expected)     | YES (expected)   | YES (expected)   | YES (expected)   |
-| Duplicate keys        | YES (last)         | NO               | YES (last)       | NO               |
-| Case insensitivity    | YES                | NO               | NO               | NO               |
-| Unknown keys          | YES (mitigable)    | YES (mitigable)  | YES              | YES (mitigable)  |
-| Garbage leading data  | NO                 | NO               | YES              | NO               |
-| Garbage trailing data | YES (with Decoder) | NO               | YES              | NO               |
-
-</div>
 
 Read the full post at [https://blog.trailofbits.com/2025/06/17/unexpected-security-footguns-in-gos-parsers/](https://blog.trailofbits.com/2025/06/17/unexpected-security-footguns-in-gos-parsers/).

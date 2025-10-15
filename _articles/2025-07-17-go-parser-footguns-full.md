@@ -70,6 +70,66 @@ Below is a summary of the surprising behaviors we'll examine, with indicators sh
 
 </div>
 
+<!-- Alternative design if the setup above does not work -->
+<!-- <table class="summaryTable" border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; text-align: center;">
+  <tr>
+    <th></th>
+    <th>JSON</th>
+    <th>JSON v2</th>
+    <th>XML</th>
+    <th>YAML</th>
+  </tr>
+  <tr>
+    <td>json:"-,..."</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES (bad design)</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES (bad design)</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES (bad design)</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES (bad design)</td>
+  </tr>
+  <tr>
+    <td>json:"omitempty"</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">YES (expected)</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">YES (expected)</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">YES (expected)</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">YES (expected)</td>
+  </tr>
+  <tr>
+    <td>Duplicate keys</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES (last)</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES (last)</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+  </tr>
+  <tr>
+    <td>Case insensitivity</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+  </tr>
+  <tr>
+    <td>Unknown keys</td>
+    <td style="background: rgba(255, 165, 0, 0.8);">YES (mitigable)</td>
+    <td style="background: rgba(255, 165, 0, 0.8)">YES (mitigable)</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES</td>
+    <td style="background: rgba(255, 165, 0, 0.8)">YES (mitigable)</td>
+  </tr>
+  <tr>
+    <td>Garbage leading data</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+  </tr>
+  <tr>
+    <td>Garbage trailing data</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES (with Decoder)</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+    <td style="background: rgba(255, 0, 0, 0.8);">YES</td>
+    <td style="background: rgba(0, 127, 0, 0.8);">NO</td>
+  </tr>
+</table> -->
+
 ## Parsing in Go
 
 Let's examine how Go parses JSON, XML, and YAML. Go's standard library provides JSON and XML parsers but not a YAML parser, for which there are several third-party alternatives. For our analysis, we'll focus on:
